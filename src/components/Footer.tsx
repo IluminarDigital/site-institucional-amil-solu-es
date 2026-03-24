@@ -11,7 +11,7 @@ export default function Footer() {
           {/* Sobre */}
           <div>
             <div className="mb-4">
-              <img src="/logo-amil.png" alt="AMIL Soluções Ambientais" className="h-10 object-contain brightness-0 invert" />
+              <img src="/logo-footer-clean.png" alt="AMIL Soluções Ambientais" className="h-10 object-contain" />
             </div>
             <p className="text-xs text-white/50 leading-relaxed">
               Grupo Amil Ambiental – tecnologia e sustentabilidade a serviço do seu negócio.

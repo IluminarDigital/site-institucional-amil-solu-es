@@ -28,7 +28,7 @@ export default function Navbar() {
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white border-b border-[#e0e8f0] ${scrolled ? "backdrop-blur-md shadow-sm" : ""}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16 md:h-[72px]">
         <Link to="/">
-          <img src="/logo-amil.png" alt="AMIL Soluções Ambientais" className="h-12 object-contain" />
+          <img src="/logo-amil-clean.png" alt="AMIL Soluções Ambientais" className="h-16 object-contain" />
         </Link>
 
         {/* Desktop Links */}
