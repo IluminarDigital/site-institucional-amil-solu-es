@@ -33,7 +33,7 @@ export const services: ServiceData[] = [
     id: "3", number: "03", title: "Limpeza de Tanque de Combustível", slug: "limpeza-tanque-combustivel",
     description: "Limpeza técnica de tanques subterrâneos e aéreos conforme NR-20.",
     longDescription: "Serviço de limpeza técnica de tanques de combustível subterrâneos e aéreos, realizado em conformidade com a NR-20. Inclui desgaseificação, remoção de borra, lavagem interna e inspeção visual, garantindo segurança operacional e ambiental.",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600",
+    image: "https://images.unsplash.com/photo-1545259742-f8e01b5a0531?w=600&auto=format&fit=crop",
     category: "AMBIENTAL E INDUSTRIAL",
     benefits: ["Conformidade com NR-20", "Desgaseificação segura", "Equipe certificada", "Laudo técnico incluso"]
   },

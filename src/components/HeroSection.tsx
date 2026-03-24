@@ -5,7 +5,7 @@ export default function HeroSection() {
   return (
     <section className="relative h-screen w-full overflow-hidden">
       <img
-        src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1400"
+        src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=1600&auto=format&fit=crop"
         alt="Operação ambiental industrial"
         className="absolute inset-0 w-full h-full object-cover"
       />
