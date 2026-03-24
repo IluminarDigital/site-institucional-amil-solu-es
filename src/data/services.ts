@@ -105,7 +105,7 @@ export const services: ServiceData[] = [
     id: "12", number: "12", title: "Limpeza de Caixa d'Água", slug: "limpeza-caixa-dagua",
     description: "Higienização e desinfecção de reservatórios conforme normas sanitárias.",
     longDescription: "Limpeza, higienização e desinfecção de caixas d'água e reservatórios, seguindo as normas sanitárias vigentes. Garantimos água potável e livre de contaminações para sua residência ou empresa.",
-    image: "https://images.unsplash.com/photo-1548839140-29a749e1cf4d?w=600",
+    image: "https://images.unsplash.com/photo-1548839140-29a749e1cf4d?w=600&auto=format&fit=crop",
     category: "DESENTUPIMENTO E HIDROJATEAMENTO",
     benefits: ["Conforme normas sanitárias", "Desinfecção completa", "Certificado de limpeza", "Agendamento flexível"]
   },
