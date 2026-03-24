@@ -113,7 +113,7 @@ export const services: ServiceData[] = [
     id: "13", number: "13", title: "Afastamento de Pombos", slug: "afastamento-pombos",
     description: "Instalação de barreiras físicas e manejo humanitário de pombos.",
     longDescription: "Serviço de afastamento de pombos com instalação de barreiras físicas (espículas, telas, redes) e manejo humanitário. Protegemos fachadas, telhados e áreas internas contra danos e riscos sanitários causados por pombos.",
-    image: "https://images.unsplash.com/photo-1444464666168-49d633b86797?w=600",
+    image: "https://images.unsplash.com/photo-1444464666168-49d633b86797?w=600&auto=format&fit=crop",
     category: "CONTROLE DE PRAGAS",
     benefits: ["Manejo humanitário", "Barreiras físicas duráveis", "Proteção de fachadas e telhados", "Prevenção de riscos sanitários"]
   },
