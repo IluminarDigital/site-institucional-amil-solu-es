@@ -22,10 +22,9 @@ export default function CertificationsSection() {
               viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}
               className="bg-petrol-card border border-petrol-border rounded-xl p-6 flex flex-col items-center text-center gap-4"
             >
-              <img src={nr.img} alt={nr.badge} className="h-16 w-16 object-contain" />
-              <span className="inline-block bg-lime text-[#0a1a04] font-extrabold text-sm px-3 py-2 rounded-lg">{nr.badge}</span>
+              <img src={nr.img} alt={nr.badge} className="h-20 w-20 object-contain" style={{ mixBlendMode: "screen" }} />
               <div>
-                <h3 className="font-bold text-sm text-white mb-2">{nr.title}</h3>
+                <h3 className="font-bold text-white mb-2">{nr.badge} — {nr.title}</h3>
                 <p className="text-xs text-[#6a9abf] leading-relaxed">{nr.desc}</p>
               </div>
             </motion.div>
