@@ -14,8 +14,8 @@ export default function ServicesSection() {
     <section id="servicos" className="bg-bg-section py-20 scroll-mt-20">
       <div className="max-w-7xl mx-auto px-6">
         <p className="text-xs font-semibold tracking-[3px] uppercase text-[#1a6b8a] mb-2">NOSSAS SOLUÇÕES</p>
-        <h2 className="font-syne font-extrabold text-2xl md:text-[34px] text-petrol mb-2">Ambiental e Industrial</h2>
-        <p className="font-dm text-sm text-[#889] mb-10">Soluções completas com tecnologia de ponta.</p>
+        <h2 className="font-extrabold text-2xl md:text-[34px] text-petrol mb-2">Ambiental e Industrial</h2>
+        <p className="text-sm text-[#889] mb-10">Soluções completas com tecnologia de ponta.</p>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {services.map((s, i) => {
@@ -35,9 +35,9 @@ export default function ServicesSection() {
                     <div className="w-9 h-9 rounded-[10px] bg-[#e8f4fd] flex items-center justify-center mb-3">
                       <Icon size={16} className="text-[#1a6b8a]" />
                     </div>
-                    <h3 className="font-syne font-bold text-[13px] text-petrol mb-1.5 leading-snug">{s.title}</h3>
-                    <p className="font-dm text-[11px] text-[#889] leading-relaxed mb-3">{s.description}</p>
-                    <span className="font-dm text-xs font-medium text-verde">Saiba mais →</span>
+                    <h3 className="font-bold text-[13px] text-petrol mb-1.5 leading-snug">{s.title}</h3>
+                    <p className="text-[11px] text-[#889] leading-relaxed mb-3">{s.description}</p>
+                    <span className="text-xs font-medium text-verde">Saiba mais →</span>
                   </div>
                 </Link>
               </motion.div>

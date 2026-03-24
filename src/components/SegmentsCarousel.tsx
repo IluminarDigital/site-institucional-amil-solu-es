@@ -18,7 +18,7 @@ export default function SegmentsCarousel() {
       <div className="max-w-7xl mx-auto px-6">
         <p className="text-xs font-semibold tracking-[3px] uppercase text-lime mb-2">SEGMENTOS QUE ATENDEMOS</p>
         <div className="flex items-end justify-between mb-10">
-          <h2 className="font-syne font-extrabold text-2xl md:text-[32px] text-white">Atuação Multissetorial</h2>
+          <h2 className="font-extrabold text-2xl md:text-[32px] text-white">Atuação Multissetorial</h2>
           <div className="hidden md:flex gap-2">
             <button onClick={() => setPage(p => Math.max(0, p - 1))} disabled={page === 0} className="w-10 h-10 rounded-full border border-petrol-border flex items-center justify-center text-white disabled:opacity-30 hover:bg-petrol-card transition-colors">
               <ChevronLeft size={18} />
@@ -42,8 +42,8 @@ export default function SegmentsCarousel() {
                 <div className="w-10 h-10 rounded-lg bg-petrol-deep flex items-center justify-center mb-4">
                   <Icon size={18} className="text-azul" />
                 </div>
-                <h3 className="font-syne font-bold text-sm text-white mb-2 leading-snug">{seg.name}</h3>
-                <p className="font-dm text-xs text-[#6a9abf]">{seg.services}</p>
+                <h3 className="font-bold text-sm text-white mb-2 leading-snug">{seg.name}</h3>
+                <p className="text-xs text-[#6a9abf]">{seg.services}</p>
               </motion.div>
             );
           })}

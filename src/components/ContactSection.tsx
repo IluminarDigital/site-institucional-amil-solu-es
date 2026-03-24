@@ -15,7 +15,7 @@ export default function ContactSection() {
       <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12">
         <div>
           <p className="text-xs font-semibold tracking-[3px] uppercase text-lime mb-2">FALE CONOSCO</p>
-          <h2 className="font-syne font-extrabold text-2xl md:text-[32px] text-white mb-6">Entre em Contato</h2>
+          <h2 className="font-extrabold text-2xl md:text-[32px] text-white mb-6">Entre em Contato</h2>
           <form onSubmit={handleSubmit} className="space-y-4">
             {[
               { key: "nome", label: "Nome", type: "text" },
@@ -56,7 +56,7 @@ export default function ContactSection() {
               <div className="w-10 h-10 rounded-full bg-petrol-card flex items-center justify-center flex-shrink-0">
                 <item.icon size={18} className="text-azul" />
               </div>
-              <p className="font-dm text-sm text-white/80 pt-2">{item.text}</p>
+              <p className="text-sm text-white/80 pt-2">{item.text}</p>
             </div>
           ))}
         </div>
