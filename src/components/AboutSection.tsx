@@ -25,6 +25,7 @@ export default function AboutSection() {
             src="/earth-nobg.png"
             alt="Planeta Terra"
             className="relative w-64 md:w-80 h-64 md:h-80 object-contain drop-shadow-2xl"
+            style={{ mixBlendMode: "screen" }}
             animate={{ y: [-12, 12, -12] }}
             transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
           />
