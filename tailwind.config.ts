@@ -13,6 +13,10 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        syne: ["Syne", "sans-serif"],
+        dm: ["DM Sans", "sans-serif"],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -57,6 +61,18 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        azul: "#4BB8F0",
+        verde: "#3A9E4A",
+        lime: "#8DC63F",
+        petrol: {
+          DEFAULT: "#0A2744",
+          dark: "#071929",
+          card: "#0d3361",
+          border: "#1a4a80",
+          deep: "#082244",
+        },
+        "bg-light": "#F0F7FF",
+        "bg-section": "#F8FBFF",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -65,25 +81,27 @@ export default {
       },
       keyframes: {
         "accordion-down": {
-          from: {
-            height: "0",
-          },
-          to: {
-            height: "var(--radix-accordion-content-height)",
-          },
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
         },
         "accordion-up": {
-          from: {
-            height: "var(--radix-accordion-content-height)",
-          },
-          to: {
-            height: "0",
-          },
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
+        },
+        "fade-in": {
+          "0%": { opacity: "0", transform: "translateY(24px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+        "pulse-ring": {
+          "0%": { transform: "scale(1)", opacity: "1" },
+          "100%": { transform: "scale(1.4)", opacity: "0" },
         },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "fade-in": "fade-in 0.6s ease-out forwards",
+        "pulse-ring": "pulse-ring 1.5s cubic-bezier(0.4,0,0.6,1) infinite",
       },
     },
   },
