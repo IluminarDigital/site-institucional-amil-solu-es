@@ -57,7 +57,7 @@ export const services: ServiceData[] = [
     id: "6", number: "06", title: "Coleta, Transporte e Destinação", slug: "coleta-transporte-destinacao",
     description: "Gestão completa de resíduos com rastreabilidade e documentação.",
     longDescription: "Gerenciamento completo da cadeia de resíduos: coleta no local de geração, transporte seguro com rastreamento por GPS e destinação final em unidades licenciadas. Emitimos toda a documentação legal necessária.",
-    image: "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=600",
+    image: "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=600&auto=format&fit=crop",
     category: "AMBIENTAL E INDUSTRIAL",
     benefits: ["Rastreamento por GPS", "Documentação legal completa", "Unidades de destinação licenciadas", "Gestão integrada de resíduos"]
   },
