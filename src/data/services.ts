@@ -49,7 +49,7 @@ export const services: ServiceData[] = [
     id: "5", number: "05", title: "Respostas a Emergências Ambientais", slug: "emergencias-ambientais",
     description: "Atendimento imediato a acidentes ambientais com equipe 24h.",
     longDescription: "Serviço de resposta rápida a emergências ambientais, incluindo derramamentos, vazamentos e contaminações. Contamos com equipe de plantão 24h e frota equipada para mobilização imediata em qualquer cenário de crise ambiental.",
-    image: "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=600",
+    image: "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=600&auto=format&fit=crop",
     category: "AMBIENTAL E INDUSTRIAL",
     benefits: ["Plantão 24 horas", "Mobilização imediata", "Equipe treinada em emergências", "Relatório ambiental completo"]
   },
