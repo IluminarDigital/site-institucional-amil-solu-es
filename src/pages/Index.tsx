@@ -2,7 +2,6 @@ import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import CredentialsBar from "@/components/CredentialsBar";
 import AboutSection from "@/components/AboutSection";
-
 import ServicesSection from "@/components/ServicesSection";
 import SegmentsCarousel from "@/components/SegmentsCarousel";
 import DifferentialsSection from "@/components/DifferentialsSection";
@@ -19,7 +18,6 @@ export default function Index() {
       <HeroSection />
       <CredentialsBar />
       <AboutSection />
-      
       <ServicesSection />
       <SegmentsCarousel />
       <DifferentialsSection />
