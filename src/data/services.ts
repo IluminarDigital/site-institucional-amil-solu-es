@@ -89,7 +89,7 @@ export const services: ServiceData[] = [
     id: "10", number: "10", title: "Limpeza em Espaço Confinado", slug: "espaco-confinado",
     description: "Operações seguras em ambientes confinados conforme NR-33.",
     longDescription: "Execução de limpeza e manutenção em espaços confinados (tanques, silos, dutos, galerias) em total conformidade com a NR-33. Equipe certificada, monitoramento atmosférico contínuo e plano de resgate.",
-    image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600",
+    image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&auto=format&fit=crop",
     category: "AMBIENTAL E INDUSTRIAL",
     benefits: ["Conformidade com NR-33", "Monitoramento atmosférico contínuo", "Plano de resgate estruturado", "Equipe certificada"]
   },
