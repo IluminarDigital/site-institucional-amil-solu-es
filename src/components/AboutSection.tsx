@@ -14,7 +14,7 @@ export default function AboutSection() {
         {/* Image column */}
         <div className="relative">
           <img
-            src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&auto=format&fit=crop"
+            src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800"
             alt="Equipe AMIL em operação"
             className="w-full h-full object-cover min-h-[400px]"
           />
