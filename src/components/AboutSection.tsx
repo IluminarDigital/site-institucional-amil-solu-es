@@ -22,7 +22,7 @@ export default function AboutSection() {
           <div className="absolute w-72 h-72 rounded-full bg-azul/20 blur-3xl" />
           {/* Floating earth */}
           <motion.img
-            src="/earth-clean.png"
+            src="/earth-nobg.png"
             alt="Planeta Terra"
             className="relative w-64 md:w-80 h-64 md:h-80 object-contain drop-shadow-2xl"
             animate={{ y: [-12, 12, -12] }}
