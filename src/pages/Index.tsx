@@ -19,7 +19,7 @@ export default function Index() {
       <HeroSection />
       <CredentialsBar />
       <AboutSection />
-      <BrandsSection />
+      
       <ServicesSection />
       <SegmentsCarousel />
       <DifferentialsSection />
