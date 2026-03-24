@@ -97,7 +97,7 @@ export const services: ServiceData[] = [
     id: "11", number: "11", title: "Desentupimento Residencial e Comercial", slug: "desentupimento",
     description: "Desentupimento com equipamentos rotativos e hidrojato.",
     longDescription: "Serviço de desentupimento para residências, comércios e indústrias, utilizando equipamentos rotativos e hidrojateamento. Atendemos tubulações, ralos, caixas de gordura, esgotos e redes pluviais com rapidez e eficiência.",
-    image: "https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=600",
+    image: "https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=600&auto=format&fit=crop",
     category: "DESENTUPIMENTO E HIDROJATEAMENTO",
     benefits: ["Equipamentos rotativos e hidrojato", "Atendimento residencial e comercial", "Sem quebrar paredes ou pisos", "Garantia do serviço"]
   },
