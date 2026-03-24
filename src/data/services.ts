@@ -121,7 +121,7 @@ export const services: ServiceData[] = [
     id: "14", number: "14", title: "Dedetização Geral", slug: "dedetizacao-geral",
     description: "Controle integrado de pragas urbanas com produtos autorizados.",
     longDescription: "Controle integrado de pragas urbanas (baratas, formigas, escorpiões, ratos, mosquitos) com produtos autorizados pela ANVISA. Atendemos residências, comércios, indústrias e condomínios com planos de manutenção preventiva.",
-    image: "https://images.unsplash.com/photo-1632923057155-dd35366ab6b5?w=600",
+    image: "https://images.unsplash.com/photo-1632923057155-dd35366ab6b5?w=600&auto=format&fit=crop",
     category: "CONTROLE DE PRAGAS",
     benefits: ["Produtos autorizados ANVISA", "Controle integrado", "Planos de manutenção preventiva", "Atendimento em todos os segmentos"]
   },
