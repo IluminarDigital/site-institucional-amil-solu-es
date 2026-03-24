@@ -13,7 +13,7 @@ export default function HeroSection() {
 
       <div className="relative z-10 h-full flex flex-col justify-end max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 pb-16 md:pb-20">
         <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
-          <span className="inline-block px-4 py-1.5 rounded-full text-xs font-dm font-semibold tracking-wider text-lime border border-lime/30 bg-lime/10 mb-6">
+          <span className="inline-block px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider text-lime border border-lime/30 bg-lime/10 mb-6">
             SOLUÇÕES AMBIENTAIS E INDUSTRIAIS
           </span>
 
@@ -28,10 +28,10 @@ export default function HeroSection() {
           </p>
 
           <div className="flex flex-wrap gap-3 mb-12">
-            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-lime text-[#0a1a04] font-dm font-bold text-sm px-6 py-3 rounded-lg hover:scale-[1.02] transition-transform">
+            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-lime text-[#0a1a04] font-bold text-sm px-6 py-3 rounded-lg hover:scale-[1.02] transition-transform">
               Fale pelo WhatsApp
             </a>
-            <a href="#servicos" className="inline-flex items-center gap-2 border text-sm font-dm font-medium px-6 py-3 rounded-lg text-white hover:bg-white/10 transition-colors" style={{ borderColor: "rgba(255,255,255,0.35)" }}>
+            <a href="#servicos" className="inline-flex items-center gap-2 border text-sm font-medium px-6 py-3 rounded-lg text-white hover:bg-white/10 transition-colors" style={{ borderColor: "rgba(255,255,255,0.35)" }}>
               Conheça os Serviços
             </a>
           </div>

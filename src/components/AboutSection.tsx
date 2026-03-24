@@ -19,7 +19,7 @@ export default function AboutSection() {
             className="w-full h-full object-cover min-h-[400px]"
           />
           <div className="absolute bottom-0 left-0 right-0 bg-lime px-8 py-5">
-            <p className="text-xs font-dm font-semibold tracking-wider uppercase text-[#333]">GRUPO AMIL AMBIENTAL</p>
+            <p className="text-xs font-semibold tracking-wider uppercase text-[#333]">GRUPO AMIL AMBIENTAL</p>
             <p className="font-syne font-bold text-xl text-[#0a1a04]">3 marcas. 1 missão.</p>
           </div>
         </div>
@@ -29,7 +29,7 @@ export default function AboutSection() {
           initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}
           className="bg-white px-8 py-12 lg:px-16 lg:py-[72px] flex flex-col justify-center"
         >
-          <p className="text-xs font-dm font-semibold tracking-[3px] uppercase text-[#1a6b8a] mb-3">QUEM SOMOS</p>
+          <p className="text-xs font-semibold tracking-[3px] uppercase text-[#1a6b8a] mb-3">QUEM SOMOS</p>
           <h2 className="font-syne font-extrabold text-2xl md:text-[32px] text-petrol leading-tight mb-6">
             Especialistas em Serviços Ambientais Integrados
           </h2>
