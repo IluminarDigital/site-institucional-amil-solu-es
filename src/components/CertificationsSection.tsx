@@ -11,8 +11,8 @@ export default function CertificationsSection() {
     <section className="bg-petrol py-20">
       <div className="max-w-7xl mx-auto px-6">
         <p className="text-xs font-semibold tracking-[3px] uppercase text-lime mb-2">CERTIFICAÇÕES E NORMAS</p>
-        <h2 className="font-syne font-extrabold text-2xl md:text-[32px] text-white mb-3">Conformidade Total com as NRs</h2>
-        <p className="font-dm text-sm text-white/60 mb-10 max-w-xl">Equipes treinadas e certificadas conforme as Normas Regulamentadoras do MTE.</p>
+        <h2 className="font-extrabold text-2xl md:text-[32px] text-white mb-3">Conformidade Total com as NRs</h2>
+        <p className="text-sm text-white/60 mb-10 max-w-xl">Equipes treinadas e certificadas conforme as Normas Regulamentadoras do MTE.</p>
 
         <div className="grid md:grid-cols-3 gap-5">
           {nrs.map((nr, i) => (
@@ -26,8 +26,8 @@ export default function CertificationsSection() {
                 <span className="inline-block bg-lime text-[#0a1a04] font-extrabold text-sm px-3 py-2 rounded-lg">{nr.badge}</span>
               </div>
               <div>
-                <h3 className="font-syne font-bold text-sm text-white mb-2">{nr.title}</h3>
-                <p className="font-dm text-xs text-[#6a9abf] leading-relaxed">{nr.desc}</p>
+                <h3 className="font-bold text-sm text-white mb-2">{nr.title}</h3>
+                <p className="text-xs text-[#6a9abf] leading-relaxed">{nr.desc}</p>
               </div>
             </motion.div>
           ))}

@@ -17,13 +17,13 @@ export default function HeroSection() {
             SOLUÇÕES AMBIENTAIS E INDUSTRIAIS
           </span>
 
-          <h1 className="font-syne font-extrabold text-3xl sm:text-4xl md:text-[52px] leading-tight max-w-2xl mb-5">
+          <h1 className="font-extrabold text-3xl sm:text-4xl md:text-[52px] leading-tight max-w-2xl mb-5">
             <span className="text-white">Proteção Ambiental com </span>
             <span className="text-azul">Tecnologia</span>
             <span className="text-white"> e Segurança</span>
           </h1>
 
-          <p className="font-dm text-base md:text-lg max-w-lg mb-8" style={{ color: "rgba(255,255,255,0.7)" }}>
+          <p className="text-base md:text-lg max-w-lg mb-8" style={{ color: "rgba(255,255,255,0.7)" }}>
             Coleta, transporte e destinação de resíduos com plantão 24h para o seu negócio.
           </p>
 
@@ -43,8 +43,8 @@ export default function HeroSection() {
               { value: "100%", label: "frota própria" },
             ].map(c => (
               <div key={c.label}>
-                <p className="font-syne font-extrabold text-2xl md:text-[30px] text-azul">{c.value}</p>
-                <p className="font-dm text-[11px] uppercase tracking-wider" style={{ color: "rgba(255,255,255,0.45)" }}>{c.label}</p>
+                <p className="font-extrabold text-2xl md:text-[30px] text-azul">{c.value}</p>
+                <p className="text-[11px] uppercase tracking-wider" style={{ color: "rgba(255,255,255,0.45)" }}>{c.label}</p>
               </div>
             ))}
           </div>

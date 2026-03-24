@@ -14,7 +14,7 @@ export default function ServicePage() {
       <>
         <Navbar />
         <div className="pt-32 pb-20 text-center">
-          <h1 className="font-syne text-2xl font-bold text-petrol">Serviço não encontrado</h1>
+          <h1 className="text-2xl font-bold text-petrol">Serviço não encontrado</h1>
           <Link to="/" className="text-azul mt-4 inline-block">Voltar ao início</Link>
         </div>
         <Footer />
@@ -34,8 +34,8 @@ export default function ServicePage() {
             <Link to="/#servicos" className="flex items-center gap-2 text-sm text-white/60 hover:text-white transition-colors mb-4">
               <ArrowLeft size={16} /> Voltar para Serviços
             </Link>
-            <span className="font-dm text-xs font-semibold tracking-wider uppercase text-lime mb-2">{service.category}</span>
-            <h1 className="font-syne font-extrabold text-3xl md:text-4xl text-white">{service.title}</h1>
+            <span className="text-xs font-semibold tracking-wider uppercase text-lime mb-2">{service.category}</span>
+            <h1 className="font-extrabold text-3xl md:text-4xl text-white">{service.title}</h1>
           </div>
         </div>
       </section>
@@ -44,15 +44,15 @@ export default function ServicePage() {
       <section className="bg-white py-16">
         <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-3 gap-12">
           <div className="lg:col-span-2">
-            <h2 className="font-syne font-bold text-xl text-petrol mb-4">Sobre o Serviço</h2>
-            <p className="font-dm text-sm text-[#556] leading-[1.85] mb-8">{service.longDescription}</p>
+            <h2 className="font-bold text-xl text-petrol mb-4">Sobre o Serviço</h2>
+            <p className="text-sm text-[#556] leading-[1.85] mb-8">{service.longDescription}</p>
 
-            <h3 className="font-syne font-bold text-lg text-petrol mb-4">O que inclui</h3>
+            <h3 className="font-bold text-lg text-petrol mb-4">O que inclui</h3>
             <div className="space-y-3">
               {service.benefits.map(b => (
                 <div key={b} className="flex items-start gap-3">
                   <CheckCircle size={18} className="text-verde flex-shrink-0 mt-0.5" />
-                  <p className="font-dm text-sm text-[#556]">{b}</p>
+                  <p className="text-sm text-[#556]">{b}</p>
                 </div>
               ))}
             </div>
@@ -60,12 +60,12 @@ export default function ServicePage() {
 
           <div className="lg:col-span-1">
             <div className="sticky top-24 bg-bg-light border border-[#d0e4f5] rounded-xl p-6">
-              <h3 className="font-syne font-bold text-base text-petrol mb-4">Por que escolher a AMIL?</h3>
+              <h3 className="font-bold text-base text-petrol mb-4">Por que escolher a AMIL?</h3>
               <div className="space-y-3 mb-6">
                 {["Equipe certificada e treinada", "Frota 100% própria", "Atendimento 24h", "Documentação e laudos completos"].map(b => (
                   <div key={b} className="flex items-start gap-2">
                     <CheckCircle size={14} className="text-verde flex-shrink-0 mt-0.5" />
-                    <p className="font-dm text-xs text-[#556]">{b}</p>
+                    <p className="text-xs text-[#556]">{b}</p>
                   </div>
                 ))}
               </div>

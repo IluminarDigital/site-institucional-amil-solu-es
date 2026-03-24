@@ -7,7 +7,7 @@ export default function CredentialsBar() {
         {items.map(item => (
           <div key={item} className="flex items-center gap-2 px-4 md:px-8">
             <span className="w-2 h-2 rounded-full bg-verde flex-shrink-0" />
-            <span className="font-dm font-semibold text-sm text-[#1a3a5c] whitespace-nowrap">{item}</span>
+            <span className="font-semibold text-sm text-[#1a3a5c] whitespace-nowrap">{item}</span>
           </div>
         ))}
       </div>
