@@ -11,8 +11,8 @@ export default function CertificationsSection() {
     <section className="bg-petrol py-20">
       <div className="max-w-7xl mx-auto px-6">
         <p className="text-xs font-semibold tracking-[3px] uppercase text-lime mb-2">CERTIFICAÇÕES E NORMAS</p>
-        <h2 className="font-extrabold text-2xl md:text-[32px] text-white mb-3">Conformidade Total com as NRs</h2>
-        <p className="text-sm text-white/60 mb-10 max-w-xl">Equipes treinadas e certificadas conforme as Normas Regulamentadoras do MTE.</p>
+        <h2 className="font-extrabold text-2xl md:text-[32px] text-white mb-3">Zero Riscos, Total Conformidade</h2>
+        <p className="text-sm text-white/60 mb-10 max-w-xl">A nossa equipe atua em estrita observância das Normas Regulamentadoras (NRs), garantindo que a sua empresa evita passivos ambientais e sanções legais.</p>
 
         <div className="grid md:grid-cols-3 gap-5">
           {nrs.map((nr, i) => (

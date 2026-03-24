@@ -17,12 +17,12 @@ export default function BrandsSection() {
               key={b.name}
               initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="bg-white rounded-xl border border-[#d0e4f5] overflow-hidden hover:-translate-y-1 transition-transform"
+              className="bg-white rounded-xl border border-[#d0e4f5] overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_30px_-8px_rgba(10,39,68,0.12)]"
               style={{ borderTopWidth: 4, borderTopColor: b.color }}
             >
               <div className="p-7">
                 <h3 className="font-bold text-lg text-petrol mb-3">{b.name}</h3>
-                <p className="text-sm text-[#889] leading-relaxed">{b.desc}</p>
+                <p className="text-sm text-muted-foreground leading-relaxed">{b.desc}</p>
               </div>
             </motion.div>
           ))}
