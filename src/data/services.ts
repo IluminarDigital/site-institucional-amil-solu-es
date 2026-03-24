@@ -41,7 +41,7 @@ export const services: ServiceData[] = [
     id: "4", number: "04", title: "Limpeza de Lagoa Industrial", slug: "limpeza-lagoa-industrial",
     description: "Dragagem e limpeza de lagoas de tratamento e decantação industrial.",
     longDescription: "Realizamos a dragagem e limpeza de lagoas de tratamento, decantação e estabilização industrial. Utilizamos equipamentos de sucção de grande porte para remoção de lodo e sedimentos, com posterior destinação ambiental adequada.",
-    image: "https://images.unsplash.com/photo-1559825481-12a05cc00344?w=600",
+    image: "https://images.unsplash.com/photo-1559825481-12a05cc00344?w=600&auto=format&fit=crop",
     category: "AMBIENTAL E INDUSTRIAL",
     benefits: ["Equipamentos de grande porte", "Remoção completa de sedimentos", "Destinação ambiental adequada", "Mínima interferência operacional"]
   },
