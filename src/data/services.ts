@@ -65,7 +65,7 @@ export const services: ServiceData[] = [
     id: "7", number: "07", title: "Limpeza de Equalizador", slug: "limpeza-equalizador",
     description: "Limpeza e manutenção de tanques equalizadores de estações de tratamento.",
     longDescription: "Serviço especializado de limpeza e manutenção de tanques equalizadores em estações de tratamento de efluentes. Garantimos a remoção completa de sedimentos e a restauração da capacidade operacional do sistema.",
-    image: "https://images.unsplash.com/photo-1565008447742-97f6f38c985c?w=600",
+    image: "https://images.unsplash.com/photo-1565008447742-97f6f38c985c?w=600&auto=format&fit=crop",
     category: "AMBIENTAL E INDUSTRIAL",
     benefits: ["Restauração da capacidade operacional", "Remoção completa de sedimentos", "Equipe técnica especializada", "Mínimo tempo de parada"]
   },
