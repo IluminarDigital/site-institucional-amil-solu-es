@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight, Factory, FlaskConical, Apple, Mountain, TreePine, Truck, Building2, Wheat, Store, ShieldCheck } from "lucide-react";
 import { segments } from "@/data/services";
 
@@ -9,6 +9,7 @@ const iconMap: Record<string, React.ElementType> = {
 
 export default function SegmentsCarousel() {
   const [page, setPage] = useState(0);
+  const [flipped, setFlipped] = useState<string | null>(null);
   const perPage = 3;
   const totalPages = Math.ceil(segments.length / perPage);
   const visible = segments.slice(page * perPage, page * perPage + perPage);
@@ -16,9 +17,11 @@ export default function SegmentsCarousel() {
   return (
     <section id="segmentos" className="bg-petrol py-20 scroll-mt-20">
       <div className="max-w-7xl mx-auto px-6">
-        <p className="text-xs font-semibold tracking-[3px] uppercase text-lime mb-2">SEGMENTOS QUE ATENDEMOS</p>
+        <motion.p initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+          className="text-xs font-semibold tracking-[3px] uppercase text-lime mb-2">SEGMENTOS QUE ATENDEMOS</motion.p>
         <div className="flex items-end justify-between mb-10">
-          <h2 className="font-extrabold text-2xl md:text-[32px] text-white">Atuação Multissetorial</h2>
+          <motion.h2 initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}
+            className="font-extrabold text-2xl md:text-[32px] text-white">Atuação Multissetorial</motion.h2>
           <div className="hidden md:flex gap-2">
             <button onClick={() => setPage(p => Math.max(0, p - 1))} disabled={page === 0} className="w-10 h-10 rounded-full border border-petrol-border flex items-center justify-center text-white disabled:opacity-30 hover:bg-petrol-card transition-colors">
               <ChevronLeft size={18} />
@@ -29,24 +32,52 @@ export default function SegmentsCarousel() {
           </div>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-5">
-          {visible.map((seg, i) => {
-            const Icon = iconMap[seg.icon] || Factory;
-            return (
-              <motion.div
-                key={seg.name}
-                initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: i * 0.1 }}
-                className="bg-petrol-card border border-petrol-border rounded-xl p-6 hover:-translate-y-1 transition-transform"
-              >
-                <div className="w-10 h-10 rounded-lg bg-petrol-deep flex items-center justify-center mb-4">
-                  <Icon size={18} className="text-azul" />
-                </div>
-                <h3 className="font-bold text-sm text-white mb-2 leading-snug">{seg.name}</h3>
-                <p className="text-xs text-[#6a9abf]">{seg.services}</p>
-              </motion.div>
-            );
-          })}
+        <div className="grid md:grid-cols-3 gap-5" style={{ perspective: "1000px" }}>
+          <AnimatePresence mode="wait">
+            {visible.map((seg, i) => {
+              const Icon = iconMap[seg.icon] || Factory;
+              const isFlipped = flipped === seg.name;
+              return (
+                <motion.div
+                  key={seg.name}
+                  initial={{ opacity: 0, y: 20, filter: "blur(4px)" }}
+                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                  transition={{ duration: 0.5, delay: i * 0.1 }}
+                  className="relative cursor-pointer h-[180px]"
+                  style={{ transformStyle: "preserve-3d" }}
+                  onMouseEnter={() => setFlipped(seg.name)}
+                  onMouseLeave={() => setFlipped(null)}
+                >
+                  {/* Front */}
+                  <motion.div
+                    animate={{ rotateY: isFlipped ? 180 : 0 }}
+                    transition={{ duration: 0.5 }}
+                    className="absolute inset-0 bg-petrol-card border border-petrol-border rounded-xl p-6"
+                    style={{ backfaceVisibility: "hidden" }}
+                  >
+                    <div className="w-10 h-10 rounded-lg bg-petrol-deep flex items-center justify-center mb-4">
+                      <Icon size={18} className="text-azul" />
+                    </div>
+                    <h3 className="font-bold text-sm text-white mb-2 leading-snug">{seg.name}</h3>
+                    <p className="text-xs text-[#6a9abf]">{seg.services}</p>
+                  </motion.div>
+
+                  {/* Back */}
+                  <motion.div
+                    animate={{ rotateY: isFlipped ? 0 : -180 }}
+                    transition={{ duration: 0.5 }}
+                    className="absolute inset-0 bg-petrol-deep border border-azul/30 rounded-xl p-6 flex flex-col justify-center"
+                    style={{ backfaceVisibility: "hidden" }}
+                  >
+                    <Icon size={24} className="text-azul mb-3" />
+                    <h3 className="font-bold text-sm text-white mb-2">{seg.name}</h3>
+                    <p className="text-xs text-[#6a9abf] leading-relaxed">Serviços: {seg.services}</p>
+                    <p className="text-[10px] text-lime mt-3 font-medium">Solicite um orçamento →</p>
+                  </motion.div>
+                </motion.div>
+              );
+            })}
+          </AnimatePresence>
         </div>
 
         <div className="flex justify-center gap-1.5 mt-8 md:hidden">
