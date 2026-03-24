@@ -12,14 +12,6 @@ const categories = [
   { label: "CONTROLE DE PRAGAS", items: services.filter(s => s.category === "CONTROLE DE PRAGAS") },
 ];
 
-const AmilLogo = () => (
-  <Link to="/" className="flex flex-col items-center leading-none">
-    <span className="font-syne text-2xl font-black tracking-tight text-azul">AMIL</span>
-    <div className="h-[3px] w-10 rounded-full bg-verde -mt-0.5 mb-0.5" />
-    <span className="text-[8px] font-dm font-semibold tracking-[2.5px] text-muted-foreground uppercase">Soluções Ambientais</span>
-  </Link>
-);
-
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -35,10 +27,12 @@ export default function Navbar() {
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white border-b border-[#e0e8f0] ${scrolled ? "backdrop-blur-md shadow-sm" : ""}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16 md:h-[72px]">
-        <AmilLogo />
+        <Link to="/">
+          <img src="/logo-amil.png" alt="AMIL Soluções Ambientais" className="h-12 object-contain" />
+        </Link>
 
         {/* Desktop Links */}
-        <div className="hidden lg:flex items-center gap-6 text-sm font-dm font-medium text-petrol">
+        <div className="hidden lg:flex items-center gap-6 text-sm font-medium text-petrol">
           <Link to="/#sobre" className="hover:text-azul transition-colors">A Amil Ambiental</Link>
 
           <div className="relative group" onMouseEnter={() => setServicesOpen(true)} onMouseLeave={() => setServicesOpen(false)}>
@@ -83,7 +77,7 @@ export default function Navbar() {
         </div>
 
         <div className="hidden lg:block">
-          <a href={WHATSAPP} target="_blank" rel="noopener noreferrer" className="inline-block bg-lime text-[#0a1a04] font-dm font-bold text-sm px-5 py-2.5 rounded-lg hover:scale-[1.02] transition-transform">
+          <a href={WHATSAPP} target="_blank" rel="noopener noreferrer" className="inline-block bg-lime text-[#0a1a04] font-bold text-sm px-5 py-2.5 rounded-lg hover:scale-[1.02] transition-transform">
             Solicitar Atendimento
           </a>
         </div>
@@ -96,7 +90,7 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="lg:hidden bg-white border-t border-[#e0e8f0] px-6 py-6 space-y-4 text-sm font-dm max-h-[80vh] overflow-y-auto">
+        <div className="lg:hidden bg-white border-t border-[#e0e8f0] px-6 py-6 space-y-4 text-sm max-h-[80vh] overflow-y-auto">
           <Link to="/#sobre" className="block text-petrol" onClick={() => setMobileOpen(false)}>A Amil Ambiental</Link>
           <div>
             <p className="font-semibold text-petrol mb-2">Serviços</p>
