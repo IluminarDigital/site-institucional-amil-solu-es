@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
 
 const nrs = [
-  { badge: "NR-20", title: "Líquidos Combustíveis e Inflamáveis", desc: "Segurança nas operações com produtos inflamáveis, tanques de combustível e áreas classificadas." },
-  { badge: "NR-33", title: "Segurança em Espaço Confinado", desc: "Planejamento, monitoramento e execução segura em tanques, silos, dutos e galerias." },
-  { badge: "NR-35", title: "Trabalho em Altura", desc: "Operações seguras acima de 2 metros com EPIs adequados e procedimentos certificados." },
+  { badge: "NR-20", title: "Líquidos Combustíveis e Inflamáveis", desc: "Segurança nas operações com produtos inflamáveis, tanques de combustível e áreas classificadas.", img: "/nr20.png" },
+  { badge: "NR-33", title: "Segurança em Espaço Confinado", desc: "Planejamento, monitoramento e execução segura em tanques, silos, dutos e galerias.", img: "/nr33.png" },
+  { badge: "NR-35", title: "Trabalho em Altura", desc: "Operações seguras acima de 2 metros com EPIs adequados e procedimentos certificados.", img: "/nr35.png" },
 ];
 
 export default function CertificationsSection() {
