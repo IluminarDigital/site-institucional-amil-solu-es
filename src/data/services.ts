@@ -17,7 +17,7 @@ export const services: ServiceData[] = [
     id: "1", number: "01", title: "Limpeza de Caixa Separadora", slug: "limpeza-caixa-separadora",
     description: "Remoção segura de resíduos oleosos e sólidos em caixas separadoras de água e óleo.",
     longDescription: "Serviço especializado na remoção de resíduos oleosos, sólidos decantados e materiais acumulados em caixas separadoras de água e óleo (SAO). Utilizamos equipamentos de sucção a vácuo de alta potência para garantir eficiência total na operação, com destinação ambientalmente correta de todos os resíduos coletados.",
-    image: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=600",
+    image: "https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=600&auto=format&fit=crop",
     category: "AMBIENTAL E INDUSTRIAL",
     benefits: ["Equipe especializada com EPIs adequados", "Sucção a vácuo de alta potência", "Destinação correta dos resíduos", "Relatório técnico completo"]
   },
