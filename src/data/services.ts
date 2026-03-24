@@ -73,7 +73,7 @@ export const services: ServiceData[] = [
     id: "8", number: "08", title: "Limpeza de Caldeiras e Evaporadores", slug: "limpeza-caldeiras",
     description: "Hidrojateamento de alta pressão em equipamentos industriais térmicos.",
     longDescription: "Limpeza técnica de caldeiras, evaporadores e trocadores de calor utilizando hidrojateamento de alta pressão. Removemos incrustações, depósitos minerais e resíduos que comprometem a eficiência energética dos equipamentos.",
-    image: "https://images.unsplash.com/photo-1513828583688-c52646db42da?w=600",
+    image: "https://images.unsplash.com/photo-1513828583688-c52646db42da?w=600&auto=format&fit=crop",
     category: "AMBIENTAL E INDUSTRIAL",
     benefits: ["Hidrojato de alta pressão", "Melhora na eficiência energética", "Extensão da vida útil dos equipamentos", "Operação sem produtos químicos agressivos"]
   },
