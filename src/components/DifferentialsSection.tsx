@@ -11,7 +11,7 @@ export default function DifferentialsSection() {
   return (
     <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-6">
-        <p className="text-xs font-dm font-semibold tracking-[3px] uppercase text-[#1a6b8a] mb-2">POR QUE ESCOLHER A AMIL</p>
+        <p className="text-xs font-semibold tracking-[3px] uppercase text-[#1a6b8a] mb-2">POR QUE ESCOLHER A AMIL</p>
         <h2 className="font-syne font-extrabold text-2xl md:text-[32px] text-petrol mb-10">Diferenciais que Fazem a Diferença</h2>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {items.map((item, i) => (

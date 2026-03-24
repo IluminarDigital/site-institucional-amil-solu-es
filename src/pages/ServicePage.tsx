@@ -31,7 +31,7 @@ export default function ServicePage() {
           <img src={service.image} alt={service.title} className="w-full h-64 md:h-80 object-cover opacity-30" />
           <div className="absolute inset-0 bg-gradient-to-t from-petrol via-petrol/80 to-transparent" />
           <div className="absolute inset-0 flex flex-col justify-end max-w-7xl mx-auto px-6 pb-10">
-            <Link to="/#servicos" className="flex items-center gap-2 font-dm text-sm text-white/60 hover:text-white transition-colors mb-4">
+            <Link to="/#servicos" className="flex items-center gap-2 text-sm text-white/60 hover:text-white transition-colors mb-4">
               <ArrowLeft size={16} /> Voltar para Serviços
             </Link>
             <span className="font-dm text-xs font-semibold tracking-wider uppercase text-lime mb-2">{service.category}</span>
@@ -69,7 +69,7 @@ export default function ServicePage() {
                   </div>
                 ))}
               </div>
-              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="block w-full bg-lime text-[#0a1a04] font-dm font-bold text-sm text-center py-3 rounded-lg hover:scale-[1.02] transition-transform">
+              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="block w-full bg-lime text-[#0a1a04] font-bold text-sm text-center py-3 rounded-lg hover:scale-[1.02] transition-transform">
                 Entre em Contato
               </a>
             </div>

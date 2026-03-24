@@ -11,50 +11,48 @@ export default function Footer() {
           {/* Sobre */}
           <div>
             <div className="mb-4">
-              <span className="font-syne text-xl font-black text-azul">AMIL</span>
-              <div className="h-[2px] w-8 bg-verde mt-0.5 mb-1 rounded-full" />
-              <span className="text-[7px] font-dm font-semibold tracking-[2px] text-white/40 uppercase">Soluções Ambientais</span>
+              <img src="/logo-amil.png" alt="AMIL Soluções Ambientais" className="h-10 object-contain brightness-0 invert" />
             </div>
-            <p className="font-dm text-xs text-white/50 leading-relaxed">
+            <p className="text-xs text-white/50 leading-relaxed">
               Grupo Amil Ambiental – tecnologia e sustentabilidade a serviço do seu negócio.
             </p>
           </div>
 
           {/* Serviços */}
           <div>
-            <h4 className="font-syne font-bold text-sm text-white mb-4">Serviços</h4>
+            <h4 className="font-bold text-sm text-white mb-4">Serviços</h4>
             <div className="space-y-1.5">
               {services.slice(0, 8).map(s => (
-                <Link key={s.slug} to={`/servicos/${s.slug}`} className="block font-dm text-xs text-white/50 hover:text-azul transition-colors">{s.title}</Link>
+                <Link key={s.slug} to={`/servicos/${s.slug}`} className="block text-xs text-white/50 hover:text-azul transition-colors">{s.title}</Link>
               ))}
             </div>
           </div>
 
           {/* Segmentos */}
           <div>
-            <h4 className="font-syne font-bold text-sm text-white mb-4">Segmentos</h4>
+            <h4 className="font-bold text-sm text-white mb-4">Segmentos</h4>
             <div className="space-y-1.5">
               {segments.slice(0, 8).map(seg => (
-                <span key={seg.name} className="block font-dm text-xs text-white/50">{seg.name}</span>
+                <span key={seg.name} className="block text-xs text-white/50">{seg.name}</span>
               ))}
             </div>
           </div>
 
           {/* Empresa */}
           <div>
-            <h4 className="font-syne font-bold text-sm text-white mb-4">Empresa</h4>
+            <h4 className="font-bold text-sm text-white mb-4">Empresa</h4>
             <div className="space-y-1.5">
-              <a href="#sobre" className="block font-dm text-xs text-white/50 hover:text-azul transition-colors">Sobre Nós</a>
-              <a href="#servicos" className="block font-dm text-xs text-white/50 hover:text-azul transition-colors">Serviços</a>
-              <a href="#contato" className="block font-dm text-xs text-white/50 hover:text-azul transition-colors">Contato</a>
-              <a href={AMIL_NEWS} target="_blank" rel="noopener noreferrer" className="block font-dm text-xs text-white/50 hover:text-azul transition-colors">Amil News</a>
+              <a href="#sobre" className="block text-xs text-white/50 hover:text-azul transition-colors">Sobre Nós</a>
+              <a href="#servicos" className="block text-xs text-white/50 hover:text-azul transition-colors">Serviços</a>
+              <a href="#contato" className="block text-xs text-white/50 hover:text-azul transition-colors">Contato</a>
+              <a href={AMIL_NEWS} target="_blank" rel="noopener noreferrer" className="block text-xs text-white/50 hover:text-azul transition-colors">Amil News</a>
             </div>
           </div>
         </div>
 
         <div className="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="font-dm text-xs text-white/30">© {new Date().getFullYear()} Grupo Amil Ambiental. Todos os direitos reservados.</p>
-          <a href={AMIL_NEWS} target="_blank" rel="noopener noreferrer" className="font-dm text-xs text-white/30 hover:text-azul transition-colors">Amil News</a>
+          <p className="text-xs text-white/30">© {new Date().getFullYear()} Grupo Amil Ambiental. Todos os direitos reservados.</p>
+          <a href={AMIL_NEWS} target="_blank" rel="noopener noreferrer" className="text-xs text-white/30 hover:text-azul transition-colors">Amil News</a>
         </div>
       </div>
     </footer>

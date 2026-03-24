@@ -16,7 +16,7 @@ export default function SegmentsCarousel() {
   return (
     <section id="segmentos" className="bg-petrol py-20 scroll-mt-20">
       <div className="max-w-7xl mx-auto px-6">
-        <p className="text-xs font-dm font-semibold tracking-[3px] uppercase text-lime mb-2">SEGMENTOS QUE ATENDEMOS</p>
+        <p className="text-xs font-semibold tracking-[3px] uppercase text-lime mb-2">SEGMENTOS QUE ATENDEMOS</p>
         <div className="flex items-end justify-between mb-10">
           <h2 className="font-syne font-extrabold text-2xl md:text-[32px] text-white">Atuação Multissetorial</h2>
           <div className="hidden md:flex gap-2">

@@ -9,7 +9,7 @@ export default function CTASection() {
           <span className="text-petrol">soluções ambientais</span>{" "}
           de alto desempenho?
         </h2>
-        <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="inline-block bg-petrol text-white font-dm font-bold text-sm px-8 py-3.5 rounded-lg hover:scale-[1.02] transition-transform mb-6">
+        <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="inline-block bg-petrol text-white font-bold text-sm px-8 py-3.5 rounded-lg hover:scale-[1.02] transition-transform mb-6">
           Fale com Nossa Equipe
         </a>
         <p className="font-dm text-sm text-[#0a1a04]/70">(62) 3291-1000 • contato@amilambiental.com.br</p>

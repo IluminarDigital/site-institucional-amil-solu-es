@@ -14,7 +14,7 @@ export default function ContactSection() {
     <section id="contato" className="bg-petrol py-20 scroll-mt-20">
       <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12">
         <div>
-          <p className="text-xs font-dm font-semibold tracking-[3px] uppercase text-lime mb-2">FALE CONOSCO</p>
+          <p className="text-xs font-semibold tracking-[3px] uppercase text-lime mb-2">FALE CONOSCO</p>
           <h2 className="font-syne font-extrabold text-2xl md:text-[32px] text-white mb-6">Entre em Contato</h2>
           <form onSubmit={handleSubmit} className="space-y-4">
             {[
@@ -30,7 +30,7 @@ export default function ContactSection() {
                 placeholder={f.label}
                 value={form[f.key as keyof typeof form]}
                 onChange={e => setForm(p => ({ ...p, [f.key]: e.target.value }))}
-                className="w-full bg-petrol-card border border-petrol-border rounded-lg px-4 py-3 text-sm font-dm text-white placeholder:text-[#6a9abf] focus:outline-none focus:ring-2 focus:ring-azul"
+                className="w-full bg-petrol-card border border-petrol-border rounded-lg px-4 py-3 text-sm text-white placeholder:text-[#6a9abf] focus:outline-none focus:ring-2 focus:ring-azul"
               />
             ))}
             <textarea
@@ -38,9 +38,9 @@ export default function ContactSection() {
               rows={4}
               value={form.mensagem}
               onChange={e => setForm(p => ({ ...p, mensagem: e.target.value }))}
-              className="w-full bg-petrol-card border border-petrol-border rounded-lg px-4 py-3 text-sm font-dm text-white placeholder:text-[#6a9abf] focus:outline-none focus:ring-2 focus:ring-azul resize-none"
+              className="w-full bg-petrol-card border border-petrol-border rounded-lg px-4 py-3 text-sm text-white placeholder:text-[#6a9abf] focus:outline-none focus:ring-2 focus:ring-azul resize-none"
             />
-            <button type="submit" className="w-full bg-lime text-[#0a1a04] font-dm font-bold text-sm py-3.5 rounded-lg hover:scale-[1.02] transition-transform">
+            <button type="submit" className="w-full bg-lime text-[#0a1a04] font-bold text-sm py-3.5 rounded-lg hover:scale-[1.02] transition-transform">
               Enviar Mensagem
             </button>
           </form>

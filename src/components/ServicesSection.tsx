@@ -13,7 +13,7 @@ export default function ServicesSection() {
   return (
     <section id="servicos" className="bg-bg-section py-20 scroll-mt-20">
       <div className="max-w-7xl mx-auto px-6">
-        <p className="text-xs font-dm font-semibold tracking-[3px] uppercase text-[#1a6b8a] mb-2">NOSSAS SOLUÇÕES</p>
+        <p className="text-xs font-semibold tracking-[3px] uppercase text-[#1a6b8a] mb-2">NOSSAS SOLUÇÕES</p>
         <h2 className="font-syne font-extrabold text-2xl md:text-[34px] text-petrol mb-2">Ambiental e Industrial</h2>
         <p className="font-dm text-sm text-[#889] mb-10">Soluções completas com tecnologia de ponta.</p>
 
@@ -29,7 +29,7 @@ export default function ServicesSection() {
                 <Link to={`/servicos/${s.slug}`} className="group block bg-white border border-[#d8e8f5] rounded-xl overflow-hidden hover:bg-bg-light hover:-translate-y-1 transition-all">
                   <div className="relative h-36 overflow-hidden">
                     <img src={s.image} alt={s.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                    <span className="absolute top-3 left-3 text-[10px] font-dm font-semibold tracking-wider uppercase text-[#b0c8e0]">{s.number}</span>
+                    <span className="absolute top-3 left-3 text-[10px] font-semibold tracking-wider uppercase text-[#b0c8e0]">{s.number}</span>
                   </div>
                   <div className="p-4">
                     <div className="w-9 h-9 rounded-[10px] bg-[#e8f4fd] flex items-center justify-center mb-3">
