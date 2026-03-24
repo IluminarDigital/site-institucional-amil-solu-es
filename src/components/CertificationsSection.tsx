@@ -23,7 +23,7 @@ export default function CertificationsSection() {
               className="bg-petrol-card border border-petrol-border rounded-xl p-6 flex flex-col items-center text-center gap-4"
             >
               <div className="w-24 h-24 flex items-center justify-center">
-                <img src={nr.img} alt={nr.badge} className="h-24 w-24 object-contain" style={{ mixBlendMode: "screen", filter: "drop-shadow(0 0 8px rgba(141,198,63,0.3))" }} />
+                <img src={nr.img} alt={nr.badge} className="h-24 w-24 object-contain" loading="lazy" width={512} height={512} />
               </div>
               <div>
                 <h3 className="font-bold text-white text-lg mb-2">{nr.title}</h3>
