@@ -81,7 +81,7 @@ export const services: ServiceData[] = [
     id: "9", number: "09", title: "Limpeza de Superfícies Industriais", slug: "limpeza-superficies",
     description: "Hidrojateamento para pisos, paredes, estruturas e áreas externas.",
     longDescription: "Serviço de limpeza de superfícies industriais com hidrojateamento de alta e ultra-alta pressão. Ideal para remoção de resíduos aderidos em pisos, paredes, estruturas metálicas e áreas de produção.",
-    image: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600",
+    image: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&auto=format&fit=crop",
     category: "AMBIENTAL E INDUSTRIAL",
     benefits: ["Hidrojato de alta e ultra-alta pressão", "Remoção de resíduos aderidos", "Aplicação em diversas superfícies", "Sem uso de agentes químicos"]
   },
