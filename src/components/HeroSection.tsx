@@ -18,18 +18,17 @@ export default function HeroSection() {
           </span>
 
           <h1 className="font-extrabold text-3xl sm:text-4xl md:text-[52px] leading-tight max-w-2xl mb-5">
-            <span className="text-white">Proteção Ambiental com </span>
-            <span className="text-azul">Tecnologia</span>
-            <span className="text-white"> e Segurança</span>
+            <span className="text-white">Soluções Ambientais e Industriais de </span>
+            <span className="text-azul">Excelência</span>
           </h1>
 
           <p className="text-base md:text-lg max-w-lg mb-8" style={{ color: "rgba(255,255,255,0.7)" }}>
-            Coleta, transporte e destinação de resíduos com plantão 24h para o seu negócio.
+            Protegemos a sua operação, garantimos a conformidade legal e promovemos a sustentabilidade através de tecnologia avançada. Plantão 24h.
           </p>
 
           <div className="flex flex-wrap gap-3 mb-12">
             <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-lime text-[#0a1a04] font-bold text-sm px-6 py-3 rounded-lg hover:scale-[1.02] transition-transform">
-              Fale pelo WhatsApp
+              Solicitar Diagnóstico Gratuito
             </a>
             <a href="#servicos" className="inline-flex items-center gap-2 border text-sm font-medium px-6 py-3 rounded-lg text-white hover:bg-white/10 transition-colors" style={{ borderColor: "rgba(255,255,255,0.35)" }}>
               Conheça os Serviços

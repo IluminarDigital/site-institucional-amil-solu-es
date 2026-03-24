@@ -20,14 +20,17 @@ export default function AboutSection() {
           }} />
           {/* Glow behind globe */}
           <div className="absolute w-72 h-72 rounded-full bg-azul/20 blur-3xl" />
-          {/* Floating earth */}
+          {/* Floating earth - black bg image with screen blend mode to integrate */}
           <motion.img
             src="/earth-nobg.png"
             alt="Planeta Terra"
             className="relative w-64 md:w-80 h-64 md:h-80 object-contain drop-shadow-2xl"
             style={{ mixBlendMode: "screen" }}
-            animate={{ y: [-12, 12, -12] }}
-            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+            animate={{ y: [-14, 14, -14] }}
+            transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+            loading="lazy"
+            width={800}
+            height={800}
           />
           {/* Bottom bar */}
           <div className="absolute bottom-0 left-0 right-0 bg-lime px-8 py-5">
