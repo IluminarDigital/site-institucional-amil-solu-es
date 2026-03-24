@@ -25,7 +25,7 @@ export const services: ServiceData[] = [
     id: "2", number: "02", title: "Coleta de Resíduos Sólidos", slug: "coleta-residuos-solidos",
     description: "Coleta, transporte e destinação final de resíduos sólidos industriais e comerciais.",
     longDescription: "Realizamos a coleta, transporte e destinação final de resíduos sólidos industriais e comerciais, atendendo às normas ambientais vigentes. Nossa frota própria garante agilidade e rastreabilidade em toda a cadeia de gestão de resíduos.",
-    image: "https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?w=600",
+    image: "https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?w=600&auto=format&fit=crop",
     category: "AMBIENTAL E INDUSTRIAL",
     benefits: ["Frota própria rastreada", "Conformidade com normas CONAMA", "Certificado de destinação final", "Atendimento programado ou emergencial"]
   },
