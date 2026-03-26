@@ -1,28 +1,19 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Droplets, Trash2, Fuel, Waves, AlertTriangle, Truck, Gauge, Flame, SprayCan, HardHat, Wrench, GlassWater, Bird, Bug } from "lucide-react";
 import { services } from "@/data/services";
-
-const iconMap: Record<string, React.ElementType> = {
-  "01": Droplets, "02": Trash2, "03": Fuel, "04": Waves, "05": AlertTriangle,
-  "06": Truck, "07": Gauge, "08": Flame, "09": SprayCan, "10": HardHat,
-  "11": Wrench, "12": GlassWater, "13": Bird, "14": Bug,
-};
 
 export default function ServicesSection() {
   return (
     <section id="servicos" className="bg-bg-section py-20 scroll-mt-20">
       <div className="max-w-7xl mx-auto px-6">
         <motion.p initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}
-          className="text-xs font-semibold tracking-[3px] uppercase text-[#1a6b8a] mb-2">NOSSAS SOLUÇÕES</motion.p>
+          className="text-xs font-semibold tracking-[3px] uppercase text-[#1a6b8a] mb-2 text-center">NOSSAS SOLUÇÕES</motion.p>
         <motion.h2 initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.1 }}
-          className="font-extrabold text-2xl md:text-[34px] text-petrol mb-2">Ambiental e Industrial</motion.h2>
+          className="font-extrabold text-2xl md:text-[34px] text-petrol mb-2 text-center">Ambiental e Industrial</motion.h2>
         <motion.p initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.15 }}
-          className="text-sm text-muted-foreground mb-10">Soluções completas com tecnologia de ponta para a conformidade e eficiência da sua operação.</motion.p>
-
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          className="text-base text-muted-foreground mb-10 text-center">Soluções completas com tecnologia de ponta para a conformidade e eficiência da sua operação.</motion.p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {services.map((s, i) => {
-            const Icon = iconMap[s.number] || Droplets;
             return (
               <motion.div
                 key={s.slug}
@@ -30,16 +21,13 @@ export default function ServicesSection() {
                 viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.08 }}
               >
                 <Link to={`/servicos/${s.slug}`} className="group block bg-white border border-[#d8e8f5] rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-[10px] hover:shadow-[0_12px_40px_-10px_rgba(10,39,68,0.18)] hover:border-verde/40">
-                  <div className="relative h-36 overflow-hidden">
+                  <div className="relative h-[200px] overflow-hidden">
                     <img src={s.image} alt={s.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy" />
                     <span className="absolute top-3 left-3 text-[10px] font-semibold tracking-wider uppercase text-[#b0c8e0]">{s.number}</span>
                   </div>
-                  <div className="p-4">
-                    <div className="w-9 h-9 rounded-[10px] bg-[#e8f4fd] flex items-center justify-center mb-3">
-                      <Icon size={16} className="text-[#1a6b8a]" />
-                    </div>
-                    <h3 className="font-bold text-[13px] text-petrol mb-1.5 leading-snug">{s.title}</h3>
-                    <p className="text-[11px] text-muted-foreground leading-relaxed mb-3">{s.description}</p>
+                  <div className="p-3 md:p-4">
+                    <h3 className="font-bold text-base text-petrol mb-1.5 leading-snug pt-1">{s.title}</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed mb-3">{s.description}</p>
                     <span className="text-xs font-medium text-verde">Saiba mais →</span>
                   </div>
                 </Link>

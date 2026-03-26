@@ -1,88 +1,204 @@
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect, useRef, useCallback } from "react";
+import { Link } from "react-router-dom";
 import { ChevronLeft, ChevronRight, Factory, FlaskConical, Apple, Mountain, TreePine, Truck, Building2, Wheat, Store, ShieldCheck } from "lucide-react";
+import { motion } from "framer-motion";
 import { segments } from "@/data/services";
 
 const iconMap: Record<string, React.ElementType> = {
   Factory, FlaskConical, Apple, Mountain, TreePine, Truck, Building2, Wheat, Store, ShieldCheck,
 };
 
+const CLONE_COUNT = 3;
+const AUTOPLAY_MS = 4000;
+const N = segments.length;
+
+// Clone CLONE_COUNT cards on each end for seamless looping
+// e.g. [...last3, ...all10, ...first3]  → 16 items total
+const extended = [
+  ...segments.slice(-CLONE_COUNT),
+  ...segments,
+  ...segments.slice(0, CLONE_COUNT),
+];
+const TOTAL = extended.length; // e.g. 16
+
 export default function SegmentsCarousel() {
-  const [page, setPage] = useState(0);
-  const [flipped, setFlipped] = useState<string | null>(null);
-  const perPage = 3;
-  const totalPages = Math.ceil(segments.length / perPage);
-  const visible = segments.slice(page * perPage, page * perPage + perPage);
+  const [visibleCount, setVisibleCount] = useState(3);
+  
+  useEffect(() => {
+    const handleResize = () => setVisibleCount(window.innerWidth < 768 ? 1 : window.innerWidth < 1024 ? 2 : 3);
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // Start at the first REAL card (index CLONE_COUNT inside extended)
+  const [idx, setIdx]       = useState(CLONE_COUNT);
+  const [animate, setAnimate] = useState(true);
+  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const isSnapping = useRef(false);
+
+  // Compute which real dot should be highlighted
+  const dotIdx = ((idx - CLONE_COUNT) % N + N) % N;
+
+  // --- Navigation ---
+  const go = useCallback((dir: 1 | -1) => {
+    if (isSnapping.current) return;
+    setAnimate(true);
+    setIdx(prev => prev + dir);
+  }, []);
+
+  // --- Autoplay ---
+  const resetTimer = useCallback(() => {
+    if (timerRef.current) clearInterval(timerRef.current);
+    timerRef.current = setInterval(() => go(1), AUTOPLAY_MS);
+  }, [go]);
+
+  useEffect(() => {
+    resetTimer();
+    return () => { if (timerRef.current) clearInterval(timerRef.current); };
+  }, [resetTimer]);
+
+  // --- Infinite loop: snap silently after reaching a clone ---
+  const handleTransitionEnd = useCallback(() => {
+    isSnapping.current = true;
+    if (idx >= N + CLONE_COUNT) {
+      // We've slid past the last real card into the right clones → jump to start
+      setAnimate(false);
+      setIdx(CLONE_COUNT);
+    } else if (idx < CLONE_COUNT) {
+      // We've slid before the first real card into the left clones → jump to end
+      setAnimate(false);
+      setIdx(N + CLONE_COUNT - 1);
+    } else {
+      isSnapping.current = false;
+    }
+  }, [idx]);
+
+  // Re-enable animation one frame after the silent snap
+  useEffect(() => {
+    if (!animate) {
+      const id = requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          setAnimate(true);
+          isSnapping.current = false;
+        });
+      });
+      return () => cancelAnimationFrame(id);
+    }
+  }, [animate]);
+
+  // Transform: shift the full track so the correct card aligns to the left edge
+  // Track width = TOTAL / visibleCount * 100%  →  each card occupies 100% / TOTAL of the track
+  // Shift = idx / TOTAL * 100% of track   →  which = idx / visibleCount * 100% of container
+  const translateX = `${-(idx / TOTAL) * 100}%`;
 
   return (
     <section id="segmentos" className="bg-petrol py-20 scroll-mt-20">
       <div className="max-w-7xl mx-auto px-6">
-        <motion.p initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-          className="text-xs font-semibold tracking-[3px] uppercase text-lime mb-2">SEGMENTOS QUE ATENDEMOS</motion.p>
-        <div className="flex items-end justify-between mb-10">
-          <motion.h2 initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}
-            className="font-extrabold text-2xl md:text-[32px] text-white">Atuação Multissetorial</motion.h2>
-          <div className="hidden md:flex gap-2">
-            <button onClick={() => setPage(p => Math.max(0, p - 1))} disabled={page === 0} className="w-10 h-10 rounded-full border border-petrol-border flex items-center justify-center text-white disabled:opacity-30 hover:bg-petrol-card transition-colors">
+        <motion.p
+          initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+          className="text-xs font-semibold tracking-[3px] uppercase text-lime mb-2 text-center"
+        >
+          SEGMENTOS QUE ATENDEMOS
+        </motion.p>
+
+        <div className="relative flex items-center justify-center mb-10">
+          <motion.h2
+            initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}
+            className="font-extrabold text-2xl md:text-[32px] text-white text-center"
+          >
+            Atuação Multissetorial
+          </motion.h2>
+          <div className="hidden md:flex absolute right-0 gap-4">
+            <button
+              onClick={() => { go(-1); resetTimer(); }}
+              className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 flex items-center justify-center text-white transition-colors flex-shrink-0"
+              aria-label="Anterior"
+            >
               <ChevronLeft size={18} />
             </button>
-            <button onClick={() => setPage(p => Math.min(totalPages - 1, p + 1))} disabled={page === totalPages - 1} className="w-10 h-10 rounded-full border border-petrol-border flex items-center justify-center text-white disabled:opacity-30 hover:bg-petrol-card transition-colors">
+            <button
+              onClick={() => { go(1); resetTimer(); }}
+              className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 flex items-center justify-center text-white transition-colors flex-shrink-0"
+              aria-label="Próximo"
+            >
               <ChevronRight size={18} />
             </button>
           </div>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-5" style={{ perspective: "1000px" }}>
-          <AnimatePresence mode="wait">
-            {visible.map((seg, i) => {
+        {/* Track */}
+        <div className="overflow-hidden w-full">
+          <div
+            className="flex"
+            style={{
+              width: `${(TOTAL / visibleCount) * 100}%`,
+              transform: `translateX(${translateX})`,
+              transition: animate ? "transform 0.45s cubic-bezier(0.4,0,0.2,1)" : "none",
+            }}
+            onTransitionEnd={handleTransitionEnd}
+          >
+            {extended.map((seg, i) => {
               const Icon = iconMap[seg.icon] || Factory;
-              const isFlipped = flipped === seg.name;
+              const slug = seg.name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
               return (
-                <motion.div
-                  key={seg.name}
-                  initial={{ opacity: 0, y: 20, filter: "blur(4px)" }}
-                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                  transition={{ duration: 0.5, delay: i * 0.1 }}
-                  className="relative cursor-pointer h-[180px]"
-                  style={{ transformStyle: "preserve-3d" }}
-                  onMouseEnter={() => setFlipped(seg.name)}
-                  onMouseLeave={() => setFlipped(null)}
+                <div
+                  key={i}
+                  style={{ width: `${100 / TOTAL}%` }}
+                  className="px-2.5"
                 >
-                  {/* Front */}
-                  <motion.div
-                    animate={{ rotateY: isFlipped ? 180 : 0 }}
-                    transition={{ duration: 0.5 }}
-                    className="absolute inset-0 bg-petrol-card border border-petrol-border rounded-xl p-6"
-                    style={{ backfaceVisibility: "hidden" }}
-                  >
-                    <div className="w-10 h-10 rounded-lg bg-petrol-deep flex items-center justify-center mb-4">
+                  <Link to={`/segmentos/${slug}`} className="block h-full bg-petrol-card border border-petrol-border rounded-xl p-6 min-h-[220px] flex flex-col justify-start hover:border-azul/40 hover:bg-petrol-deep transition-colors duration-300">
+                    <div className="w-10 h-10 rounded-lg bg-petrol-deep flex items-center justify-center mb-4 flex-shrink-0">
                       <Icon size={18} className="text-azul" />
                     </div>
-                    <h3 className="font-bold text-sm text-white mb-2 leading-snug">{seg.name}</h3>
-                    <p className="text-xs text-[#6a9abf]">{seg.services}</p>
-                  </motion.div>
-
-                  {/* Back */}
-                  <motion.div
-                    animate={{ rotateY: isFlipped ? 0 : -180 }}
-                    transition={{ duration: 0.5 }}
-                    className="absolute inset-0 bg-petrol-deep border border-azul/30 rounded-xl p-6 flex flex-col justify-center"
-                    style={{ backfaceVisibility: "hidden" }}
-                  >
-                    <Icon size={24} className="text-azul mb-3" />
-                    <h3 className="font-bold text-sm text-white mb-2">{seg.name}</h3>
-                    <p className="text-xs text-[#6a9abf] leading-relaxed">Serviços: {seg.services}</p>
-                    <p className="text-[10px] text-lime mt-3 font-medium">Solicite um orçamento →</p>
-                  </motion.div>
-                </motion.div>
+                    <h3 className="font-bold text-lg text-white leading-snug">{seg.name}</h3>
+                    <p className="text-sm text-white/70 mt-2 leading-relaxed">{seg.description}</p>
+                    <ul className="mt-3 space-y-1">
+                      {seg.services.slice(0, 4).map((service, idx) => (
+                        <li key={idx} className="text-xs text-white/50">
+                          &bull; {service}
+                        </li>
+                      ))}
+                    </ul>
+                  </Link>
+                </div>
               );
             })}
-          </AnimatePresence>
+          </div>
         </div>
 
-        <div className="flex justify-center gap-1.5 mt-8 md:hidden">
-          {Array.from({ length: totalPages }).map((_, i) => (
-            <button key={i} onClick={() => setPage(i)} className={`w-2 h-2 rounded-full transition-colors ${i === page ? "bg-azul" : "bg-petrol-border"}`} />
+        {/* Mobile Navigation */}
+        <div className="flex md:hidden justify-center gap-4 mt-6">
+          <button
+            onClick={() => { go(-1); resetTimer(); }}
+            className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 flex items-center justify-center text-white transition-colors flex-shrink-0"
+            aria-label="Anterior"
+          >
+            <ChevronLeft size={18} />
+          </button>
+          <button
+            onClick={() => { go(1); resetTimer(); }}
+            className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 flex items-center justify-center text-white transition-colors flex-shrink-0"
+            aria-label="Próximo"
+          >
+            <ChevronRight size={18} />
+          </button>
+        </div>
+
+        {/* Dots */}
+        <div className="flex justify-center gap-1.5 mt-8">
+          {segments.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => {
+                const target = i + CLONE_COUNT;
+                setAnimate(true);
+                setIdx(target);
+                resetTimer();
+              }}
+              className={`w-2 h-2 rounded-full transition-colors ${i === dotIdx ? "bg-azul" : "bg-petrol-border"}`}
+              aria-label={`Ir para ${i + 1}`}
+            />
           ))}
         </div>
       </div>

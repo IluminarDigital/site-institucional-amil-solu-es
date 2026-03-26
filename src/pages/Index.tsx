@@ -20,9 +20,9 @@ export default function Index() {
       <AboutSection />
       <ServicesSection />
       <SegmentsCarousel />
-      <DifferentialsSection />
-      <CertificationsSection />
       <CTASection />
+      <CertificationsSection />
+      <DifferentialsSection />
       <ContactSection />
       <Footer />
       <WhatsAppButton />

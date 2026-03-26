@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Target, Eye, Heart } from "lucide-react";
+import { Target, Eye, Heart, Leaf } from "lucide-react";
 
 const values = [
   { icon: Target, title: "Missão", text: "Entregar soluções ambientais completas, seguras e sustentáveis." },
@@ -9,49 +9,36 @@ const values = [
 
 export default function AboutSection() {
   return (
-    <section id="sobre" className="scroll-mt-20">
-      <div className="grid lg:grid-cols-2 min-h-[600px]">
-        {/* Image column - Earth globe with space background */}
-        <div className="relative flex items-center justify-center bg-gradient-to-br from-[#0a1a2e] via-[#0d2847] to-[#061a30] overflow-hidden min-h-[400px]">
-          {/* Stars effect */}
-          <div
-            className="absolute inset-0 opacity-30"
-            style={{
-              backgroundImage:
-                "radial-gradient(1px 1px at 20px 30px, white, transparent), radial-gradient(1px 1px at 40px 70px, white, transparent), radial-gradient(1px 1px at 50px 160px, white, transparent), radial-gradient(1px 1px at 90px 40px, white, transparent), radial-gradient(1px 1px at 130px 80px, white, transparent), radial-gradient(1px 1px at 160px 120px, white, transparent)",
-              backgroundSize: "200px 200px",
-            }}
-          />
-          {/* Glow behind globe */}
-          <div className="absolute w-72 h-72 rounded-full bg-azul/20 blur-3xl" />
+    <section id="sobre" className="scroll-mt-20 bg-gradient-to-br from-slate-50 to-teal-50">
+      <div className="flex flex-col lg:grid lg:grid-cols-2 min-h-[600px]">
+        {/* Image column */}
+        <div className="relative flex items-center justify-center bg-transparent min-h-[400px] overflow-hidden">
           {/* Floating & rotating earth */}
           <motion.div
-            animate={{ y: [-14, 14, -14], rotate: 360 }}
+            animate={{ y: [-14, 14, -14] }}
             transition={{
               y: { duration: 2.5, repeat: Infinity, ease: "easeInOut" },
-              rotate: { duration: 30, repeat: Infinity, ease: "linear" },
             }}
-            className="relative"
+            className="relative w-full flex justify-center p-8 pb-24"
           >
             <img
-              src="/earth-nobg.png"
+              src="/globo -sem-fundo.png"
               alt="Planeta Terra"
-              className="w-64 md:w-80 h-64 md:h-80 object-contain drop-shadow-2xl"
-              style={{ mixBlendMode: "screen" }}
+              className="w-48 sm:w-64 md:w-full md:max-w-md mx-auto drop-shadow-2xl"
               loading="lazy"
               width={800}
               height={800}
             />
           </motion.div>
           {/* Bottom bar */}
-          <div className="absolute bottom-0 left-0 right-0 bg-lime px-8 py-5">
-            <p className="text-xs font-semibold tracking-wider uppercase text-[#333]">GRUPO AMIL AMBIENTAL</p>
-            <p className="font-bold text-xl text-[#0a1a04]">1 Empresa. 1 missão.</p>
+          <div className="absolute bottom-0 left-0 right-0 bg-lime px-8 py-5 flex items-center justify-center gap-3">
+            <Leaf className="w-6 h-6 text-[#0a1a04]" />
+            <p className="text-xl font-semibold text-[#0a1a04]">Tecnologia e responsabilidade ambiental em cada operação.</p>
           </div>
         </div>
 
         {/* Text column */}
-        <div className="bg-white px-8 py-12 lg:px-16 lg:py-[72px] flex flex-col justify-center">
+        <div className="px-8 py-12 lg:px-16 lg:py-[72px] flex flex-col justify-center text-left">
           <motion.p
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -66,7 +53,7 @@ export default function AboutSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="font-extrabold text-2xl md:text-[32px] text-petrol leading-tight mb-6"
+            className="font-extrabold text-2xl md:text-[32px] text-slate-800 leading-tight mb-6"
           >
             Especialistas em Serviços Ambientais Integrados
           </motion.h2>
@@ -75,7 +62,7 @@ export default function AboutSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-sm text-[#556] leading-[1.85] mb-8"
+            className="text-base text-slate-600 leading-[1.85] mb-8"
           >
             A AMIL Soluções Ambientais é um grupo especializado em serviços ambientais integrados, com atuação em
             limpeza técnica com alta pressão e sucção a vácuo, gestão e transporte de resíduos, controle de pragas e
@@ -93,14 +80,14 @@ export default function AboutSection() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: 0.3 + i * 0.1 }}
-                className="flex items-start gap-4"
+                className="flex items-start gap-4 text-left"
               >
                 <div className="w-10 h-10 rounded-full bg-[#e8f4fd] flex items-center justify-center flex-shrink-0">
                   <v.icon size={18} className="text-[#1a6b8a]" />
                 </div>
                 <div>
-                  <p className="font-semibold text-sm text-petrol mb-0.5">{v.title}</p>
-                  <p className="text-xs text-[#889]">{v.text}</p>
+                  <p className="font-semibold text-base text-slate-800 mb-0.5">{v.title}</p>
+                  <p className="text-sm text-slate-500">{v.text}</p>
                 </div>
               </motion.div>
             ))}
