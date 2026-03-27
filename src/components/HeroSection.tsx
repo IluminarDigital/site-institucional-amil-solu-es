@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
+import { getImageUrl } from "@/lib/utils";
 import { Leaf } from "lucide-react";
 import { WHATSAPP_URL } from "@/data/services";
 
@@ -48,7 +49,7 @@ export default function HeroSection() {
         <div
           className="absolute inset-0 bg-cover bg-center origin-center"
           style={{ 
-            backgroundImage: "url('/hero-bg.jpg')",
+            backgroundImage: `url('${getImageUrl("/hero-bg.jpg")}')`,
             animation: "kenBurns 20s ease-in-out infinite alternate"
           }}
         />

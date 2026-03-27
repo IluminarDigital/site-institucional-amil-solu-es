@@ -4,6 +4,7 @@ import { segments, services, WHATSAPP_URL } from "@/data/services";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import { getImageUrl } from "@/lib/utils";
 
 export default function SegmentPage() {
   const { slug } = useParams();
@@ -48,7 +49,7 @@ export default function SegmentPage() {
         <div className="relative h-72 lg:h-96 w-full flex items-center">
           <div
             className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: "url('/hero-bg.jpg')" }}
+            style={{ backgroundImage: `url('${getImageUrl("/hero-bg.jpg")}')` }}
           />
           <div className="absolute inset-0 bg-gradient-to-r from-petrol-dark/95 via-teal-900/90 to-verde/80" />
           

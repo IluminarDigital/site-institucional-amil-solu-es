@@ -4,6 +4,7 @@ import { services, WHATSAPP_URL } from "@/data/services";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import { getImageUrl } from "@/lib/utils";
 
 export default function ServicePage() {
   const { slug } = useParams();
@@ -30,7 +31,7 @@ export default function ServicePage() {
         <div className="relative h-72 lg:h-96 w-full">
           <div
             className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: `url('${service.image}')` }}
+            style={{ backgroundImage: `url('${getImageUrl(service.image)}')` }}
           />
           <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/30" />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
@@ -113,7 +114,7 @@ export default function ServicePage() {
                 </div>
               </div>
               <div className="rounded-2xl overflow-hidden shadow-xl h-56 border border-slate-100">
-                <img src={service.image} alt="Equipe AMIL" className="w-full h-full object-cover" />
+                <img src={getImageUrl(service.image)} alt="Equipe AMIL" className="w-full h-full object-cover" />
               </div>
             </div>
           </div>

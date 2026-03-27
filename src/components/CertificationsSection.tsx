@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { getImageUrl } from "@/lib/utils";
 
 const nrs = [
   { badge: "NR-20", title: "Líquidos Combustíveis e Inflamáveis", desc: "Segurança nas operações com produtos inflamáveis, tanques de combustível e áreas classificadas.", img: "/NR-20-semfundo.png" },
@@ -23,7 +24,7 @@ export default function CertificationsSection() {
               className="bg-petrol-card border border-petrol-border rounded-xl p-6 flex flex-col items-center text-center gap-4"
             >
               <div className="w-32 h-32 flex items-center justify-center mx-auto mb-4">
-                <img src={nr.img} alt={nr.badge} className="w-32 h-32 object-contain mx-auto" loading="lazy" />
+                <img src={getImageUrl(nr.img)} alt={nr.badge} className="w-32 h-32 object-contain mx-auto" loading="lazy" />
               </div>
               <div>
                 <h3 className="font-bold text-white text-lg mb-2">{nr.title}</h3>

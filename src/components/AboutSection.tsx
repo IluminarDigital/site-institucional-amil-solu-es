@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Target, Eye, Heart, Leaf } from "lucide-react";
+import { getImageUrl } from "@/lib/utils";
 
 const values = [
   { icon: Target, title: "Missão", text: "Entregar soluções ambientais completas, seguras e sustentáveis." },
@@ -22,7 +23,7 @@ export default function AboutSection() {
             className="relative w-full flex justify-center p-8 pb-24"
           >
             <img
-              src="/globo -sem-fundo.png"
+              src={getImageUrl("/globo -sem-fundo.png")}
               alt="Planeta Terra"
               className="w-48 sm:w-64 md:w-full md:max-w-md mx-auto drop-shadow-2xl"
               loading="lazy"

@@ -1,6 +1,3 @@
-import coletaTransporte from "/coleta-transporte-destinacao.png";
-import caixaDagua from "/limpeza-caixa-dagua.png";
-
 export const WHATSAPP_URL = "https://api.whatsapp.com/send/?phone=5562986090307&text=Oi%2C+eu+vim+pelo+site+do+grupo+amil+ambiental%2C+quero+saber+mais+sobre+seus+servi%C3%A7os.&type=phone_number&app_absent=0";
 
 export interface ServiceData {
@@ -60,7 +57,7 @@ export const services: ServiceData[] = [
     id: "6", number: "06", title: "Coleta, Transporte e Destinação", slug: "coleta-transporte-destinacao",
     description: "Gestão completa de resíduos com rastreabilidade e documentação.",
     longDescription: "Gerenciamento completo da cadeia de resíduos: coleta no local de geração, transporte seguro com rastreamento por GPS e destinação final em unidades licenciadas. Emitimos toda a documentação legal necessária.",
-    image: coletaTransporte,
+    image: "/coleta-transporte-destinacao.png",
     category: "AMBIENTAL E INDUSTRIAL",
     benefits: ["Rastreamento por GPS", "Documentação legal completa", "Unidades de destinação licenciadas", "Gestão integrada de resíduos"]
   },
@@ -108,7 +105,7 @@ export const services: ServiceData[] = [
     id: "12", number: "12", title: "Limpeza de Caixa d'Água", slug: "limpeza-caixa-dagua",
     description: "Higienização e desinfecção de reservatórios conforme normas sanitárias.",
     longDescription: "Limpeza, higienização e desinfecção de caixas d'água e reservatórios, seguindo as normas sanitárias vigentes. Garantimos água potável e livre de contaminações para sua residência ou empresa.",
-    image: caixaDagua,
+    image: "/limpeza-caixa-dagua.png",
     category: "DESENTUPIMENTO E HIDROJATEAMENTO",
     benefits: ["Conforme normas sanitárias", "Desinfecção completa", "Certificado de limpeza", "Agendamento flexível"]
   },

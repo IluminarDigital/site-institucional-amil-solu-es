@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { services, segments } from "@/data/services";
+import { getImageUrl } from "@/lib/utils";
 
 const AMIL_NEWS = "https://www.desentupidoradecomercio.com.br";
 
@@ -12,7 +13,7 @@ export default function Footer() {
           <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
             <div>
               <img
-                src="/logo-amil-transparent.png"
+                src={getImageUrl("/logo-amil-transparent.png")}
                 alt="AMIL Soluções Ambientais"
                 className="w-36 mb-1 object-contain"
               />
