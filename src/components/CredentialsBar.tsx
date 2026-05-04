@@ -9,8 +9,17 @@ const items = [
 
 export default function CredentialsBar() {
   return (
-    <section className="bg-bg-light py-4 border-b border-slate-200">
-      <div className="max-w-7xl mx-auto px-4 lg:px-6 grid grid-cols-2 lg:flex lg:flex-wrap lg:items-center lg:justify-center gap-4 lg:gap-0">
+    <section
+      className="border-b border-slate-200"
+      style={{
+        marginTop: 0,
+        paddingTop: "14px",
+        paddingBottom: "14px",
+        background: "#f0f4f8",
+        boxShadow: "0 2px 8px rgba(0,0,0,0.08)",
+      }}
+    >
+      <div className="max-w-7xl mx-auto px-4 lg:px-6 grid grid-cols-2 lg:flex lg:flex-wrap lg:items-center lg:justify-center gap-4 lg:gap-0 mt-4">
         {items.map((item, i) => (
           <div key={item.text} className="flex flex-col sm:flex-row items-center justify-center text-center sm:text-left">
             <div className="flex flex-col sm:flex-row items-center gap-2 px-2 lg:px-8">

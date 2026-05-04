@@ -64,6 +64,18 @@
   }
 }
 
+/* ── Global section breathing room ── */
+/* Sections get NO automatic margin — spacing is handled per-section via padding-top */
+section {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+/* Content sections (not hero/credentials-bar) get top breathing room */
+section.content-section {
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
 @keyframes kenBurns {
   0% {
     transform: scale(1) translateX(0);
@@ -73,5 +85,30 @@
   }
   100% {
     transform: scale(1.03) translateX(1%);
+  }
+}
+
+/* ── Hero mobile overrides ── */
+@media (max-width: 768px) {
+  .hero-content {
+    padding: 100px 24px 40px !important;
+  }
+  .hero-h1 {
+    font-size: 38px !important;
+  }
+  .hero-subtitle {
+    font-size: 15px !important;
+  }
+  .hero-stats {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 16px !important;
+    max-width: 100% !important;
+  }
+  .hero-sep {
+    display: none !important;
+  }
+  .hero-buttons {
+    flex-direction: column !important;
   }
 }

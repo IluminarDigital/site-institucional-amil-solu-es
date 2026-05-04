@@ -1,154 +1,225 @@
-import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { getImageUrl } from "@/lib/utils";
 import { Leaf } from "lucide-react";
 import { WHATSAPP_URL } from "@/data/services";
 
-function CountUp({ target, suffix = "", prefix = "" }: { target: number; suffix?: string; prefix?: string }) {
-  const [count, setCount] = useState(0);
-  const ref = useRef<HTMLParagraphElement>(null);
-  const started = useRef(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !started.current) {
-          started.current = true;
-          const duration = 1500;
-          const steps = 40;
-          const increment = target / steps;
-          let current = 0;
-          const interval = setInterval(() => {
-            current += increment;
-            if (current >= target) {
-              setCount(target);
-              clearInterval(interval);
-            } else {
-              setCount(Math.floor(current));
-            }
-          }, duration / steps);
-        }
-      },
-      { threshold: 0.5 },
-    );
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, [target]);
-
-  return (
-    <p ref={ref} className="font-black text-2xl sm:text-3xl md:text-4xl text-azul">
-      {count > 0 ? `${prefix}${count}${suffix}` : "0"}
-    </p>
-  );
-}
-
 export default function HeroSection() {
   return (
-    <section className="relative h-screen w-full overflow-hidden">
-      <div className="absolute inset-0 w-full h-full">
-        <div
-          className="absolute inset-0 bg-cover bg-center origin-center"
-          style={{ 
-            backgroundImage: `url('${getImageUrl("/hero-bg.jpg")}')`,
-            animation: "kenBurns 20s ease-in-out infinite alternate"
-          }}
-        />
-        <div className="absolute inset-0 bg-black/10" />
-      </div>
+    <section
+      className="relative w-full overflow-hidden"
+      style={{
+        minHeight: "100vh",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        margin: 0,
+      }}
+    >
+      {/* ── Layer 0: Background image with ken-burns ── */}
       <div
-        className="absolute inset-0 pointer-events-none"
-        style={{ 
-          background: "linear-gradient(to right, rgba(5,18,36,0.95) 0%, rgba(5,18,36,0.90) 45%, rgba(5,18,36,0) 100%)" 
+        className="absolute inset-0"
+        style={{
+          backgroundImage: `url('${getImageUrl("/hero-bg.jpg")}')`,
+          backgroundSize: "cover",
+          backgroundPosition: "center right",
+          animation: "kenBurns 20s ease-in-out infinite alternate",
+          zIndex: 0,
         }}
       />
 
-      <div className="relative z-10 h-full flex flex-col justify-end max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 pb-16 md:pb-20">
+      {/* ── Layer 1: Directional gradient overlay (dense left → transparent right) ── */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            "linear-gradient(to right, rgba(5,15,30,0.85) 0%, rgba(5,15,30,0.75) 40%, rgba(5,15,30,0.20) 70%, rgba(5,15,30,0.00) 100%)",
+          zIndex: 1,
+        }}
+      />
+
+      {/* ── Layer 2: Main content ── */}
+      <div
+        className="relative w-full max-w-7xl mx-auto hero-content"
+        style={{
+          zIndex: 2,
+          padding: "80px 60px 48px 60px",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+        }}
+      >
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          <motion.span
+          {/* BADGE */}
+          <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider text-lime border border-lime/30 bg-lime/10 mb-6"
+            transition={{ duration: 0.5, delay: 0.1 }}
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "8px",
+              background: "rgba(34, 197, 94, 0.15)",
+              border: "1px solid rgba(34, 197, 94, 0.5)",
+              borderRadius: "999px",
+              padding: "8px 20px",
+              marginBottom: "20px",
+              color: "#86efac",
+              fontSize: "13px",
+              fontWeight: 500,
+            }}
           >
-            <Leaf className="w-4 h-4" />
-            SOLUÇÕES AMBIENTAIS E INDUSTRIAIS
-          </motion.span>
+            <Leaf style={{ width: "14px", height: "14px", flexShrink: 0 }} />
+            Soluções diversas para gestão de Resíduos
+          </motion.div>
 
+          {/* HEADLINE */}
           <motion.h1
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="font-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight max-w-4xl mb-5"
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="mb-5 leading-[1.05] hero-h1"
+            style={{ fontWeight: 800 }}
           >
-            <span className="text-white">Proteção Ambiental com</span><br className="hidden md:block" />
-            <span className="text-azul"> Soluções </span>
-            <span className="text-white">Seguras e Tecnológicas</span>
+            <span className="block text-white text-[38px] md:text-[68px]">Gestão Integrada de</span>
+            <span className="block text-[#38BDF8] text-[38px] md:text-[68px]">Resíduos</span>
           </motion.h1>
 
+          {/* SUBTITLE */}
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.5 }}
-            className="text-base md:text-lg text-white/80 max-w-xl mb-8"
+            transition={{ duration: 0.7, delay: 0.35 }}
+            className="mb-10 hero-subtitle"
+            style={{
+              fontSize: "17px",
+              color: "rgba(255, 255, 255, 0.85)",
+              maxWidth: "520px",
+              lineHeight: 1.6,
+            }}
           >
-            Especialistas em limpeza industrial, gestão de resíduos e conformidade ambiental com atendimento 24h em todo estado de Goiás.
+            Especialistas em gestão e Destinação Ambientalmente Correta de Resíduos
           </motion.p>
 
+          {/* BUTTONS */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.7 }}
-            className="flex flex-col sm:flex-row gap-3 mb-12 w-full sm:w-auto"
+            transition={{ duration: 0.65, delay: 0.48 }}
+            className="hero-buttons flex flex-col sm:flex-row gap-4 mb-0"
           >
             <a
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 bg-lime text-[#0a1a04] font-bold text-sm px-6 py-3 rounded-lg hover:scale-[1.02] transition-transform animate-[pulse_3s_ease-in-out_infinite] hover:animate-none shadow-[0_0_20px_rgba(141,198,63,0.3)] w-full sm:w-auto text-center"
+              className="inline-flex items-center justify-center text-center transition-all hover:scale-[1.03]"
+              style={{
+                background: "#84cc16",
+                color: "#1a2e05",
+                fontWeight: 700,
+                borderRadius: "8px",
+                padding: "14px 28px",
+                boxShadow: "0 4px 14px rgba(132, 204, 22, 0.3)",
+                border: "none",
+              }}
+              onMouseEnter={(e) => (e.currentTarget.style.background = "#65a30d")}
+              onMouseLeave={(e) => (e.currentTarget.style.background = "#84cc16")}
             >
               Solicitar Diagnóstico Gratuito
             </a>
             <a
               href="#servicos"
-              className="inline-flex items-center justify-center gap-2 border text-sm font-medium px-6 py-3 rounded-lg text-white hover:bg-white/10 transition-colors w-full sm:w-auto text-center"
-              style={{ borderColor: "rgba(255,255,255,0.35)" }}
+              className="inline-flex items-center justify-center text-center transition-colors hover:bg-white/10"
+              style={{
+                background: "transparent",
+                color: "#fff",
+                fontWeight: 600,
+                border: "2px solid rgba(255, 255, 255, 0.7)",
+                borderRadius: "8px",
+                padding: "14px 28px",
+              }}
             >
               Conheça nossos Serviços
             </a>
           </motion.div>
 
+          {/* STATS */}
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.9 }}
-            className="grid grid-cols-3 gap-2 sm:gap-6 md:flex md:flex-wrap md:items-center md:gap-10 sm:px-0"
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.65, delay: 0.62 }}
+            className="hero-stats"
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              alignItems: "center",
+              gap: "40px",
+              marginTop: "48px",
+              paddingTop: "28px",
+              borderTop: "1px solid rgba(255, 255, 255, 0.15)",
+              maxWidth: "500px",
+            }}
           >
-            {[
-              { value: 10, label: "anos de experiência", prefix: "+" },
-              { value: 24, label: "atendimento emergencial", suffix: "h" },
-              { value: 100, label: "frota própria", suffix: "%" },
-            ].map((c, i) => (
-              <div key={c.label} className="flex items-center gap-4 md:gap-10">
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 1 + i * 0.2 }}
-                  className="text-center md:text-left"
-                >
-                  <CountUp target={c.value} prefix={c.prefix} suffix={c.suffix} />
-                  <p className="text-[10px] sm:text-xs md:text-sm uppercase tracking-widest text-white/60 mt-1">
-                    {c.label}
-                  </p>
-                </motion.div>
-                {i < 2 && (
-                  <div className="hidden md:block w-px h-12 bg-white/20" />
-                )}
-              </div>
-            ))}
+            <div className="flex flex-col">
+              <span
+                style={{
+                  color: "#38BDF8",
+                  fontSize: "34px",
+                  fontWeight: 700,
+                  lineHeight: 1,
+                }}
+              >
+                +15 anos
+              </span>
+              <span
+                style={{
+                  color: "rgba(255, 255, 255, 0.6)",
+                  fontSize: "11px",
+                  textTransform: "uppercase",
+                  letterSpacing: "1px",
+                  marginTop: "4px",
+                }}
+              >
+                DE EXPERIÊNCIA
+              </span>
+            </div>
+
+            <div
+              className="hero-sep"
+              style={{
+                width: "1px",
+                height: "40px",
+                background: "rgba(255, 255, 255, 0.2)",
+                flexShrink: 0,
+              }}
+            />
+
+            <div className="flex flex-col">
+              <span
+                style={{
+                  color: "#38BDF8",
+                  fontSize: "34px",
+                  fontWeight: 700,
+                  lineHeight: 1,
+                }}
+              >
+                Centro Oeste
+              </span>
+              <span
+                style={{
+                  color: "rgba(255, 255, 255, 0.6)",
+                  fontSize: "11px",
+                  textTransform: "uppercase",
+                  letterSpacing: "1px",
+                  marginTop: "4px",
+                }}
+              >
+                ATENDEMOS EM TODO
+              </span>
+            </div>
           </motion.div>
         </motion.div>
       </div>

@@ -6,11 +6,10 @@ import { services, segments } from "@/data/services";
 import { getImageUrl } from "@/lib/utils";
 
 const AMIL_NEWS = "https://www.desentupidoradecomercio.com.br";
-const WHATSAPP = "https://api.whatsapp.com/send/?phone=5562986090307&text=Oi%2C+eu+vim+pelo+site+do+grupo+amil+ambiental%2C+quero+saber+mais+sobre+seus+servi%C3%A7os.&type=phone_number&app_absent=0";
+const WHATSAPP = "https://wa.me/5562986090307";
 
 const categories = [
   { label: "AMBIENTAL & INDUSTRIAL", icon: Factory, iconColor: "text-teal-600", items: services.filter(s => s.category === "AMBIENTAL E INDUSTRIAL") },
-  { label: "DESENTUPIMENTO", icon: Droplets, iconColor: "text-blue-500", items: services.filter(s => s.category === "DESENTUPIMENTO E HIDROJATEAMENTO") },
   { label: "CONTROLE DE PRAGAS", icon: Bug, iconColor: "text-green-600", items: services.filter(s => s.category === "CONTROLE DE PRAGAS") },
 ];
 
@@ -37,7 +36,12 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16 md:h-[72px]">
         <Link to="/">
-          <img src={getImageUrl("/logo-amil-clean.png")} alt="AMIL Soluções Ambientais" className="w-24 lg:w-auto lg:h-16 object-contain" />
+          <img 
+            src={getImageUrl("/public/logo-amil-clean.png")} 
+            alt="AMIL Soluções Ambientais" 
+            className="object-contain" 
+            style={{ height: "75px", width: "auto", background: "transparent !important", mixBlendMode: "multiply" }} 
+          />
         </Link>
 
         {/* Desktop Links */}

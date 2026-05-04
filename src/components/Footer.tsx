@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { Phone, Mail, Globe } from "lucide-react";
 import { services, segments } from "@/data/services";
 import { getImageUrl } from "@/lib/utils";
 
@@ -18,12 +19,28 @@ export default function Footer() {
                 className="w-36 mb-1 object-contain"
               />
             </div>
-            <p className="text-base text-white/50 leading-relaxed">
+            <p className="text-base text-white/50 leading-relaxed mb-6">
               Grupo Amil Ambiental – tecnologia e sustentabilidade a serviço do seu negócio.
             </p>
+            
+            {/* Contato Rápido */}
+            <div className="space-y-3">
+              <div className="flex items-center gap-3 text-white/50 hover:text-white transition-colors text-sm">
+                <Phone size={14} className="text-lime" />
+                <span>(62) 3291-1000</span>
+              </div>
+              <div className="flex items-center gap-3 text-white/50 hover:text-white transition-colors text-sm">
+                <Mail size={14} className="text-lime" />
+                <span>comercial@amilgoiania.com.br</span>
+              </div>
+              <div className="flex items-center gap-3 text-white/50 hover:text-white transition-colors text-sm">
+                <Globe size={14} className="text-lime" />
+                <span>www.amilambiental.com.br</span>
+              </div>
+            </div>
           </div>
 
-          {/* Serviços — todos os 14 */}
+          {/* Serviços */}
           <div className="flex flex-col items-center sm:items-start w-full">
             <h4 className="font-bold text-base text-white mb-4">Serviços</h4>
             <div className="space-y-1.5 flex flex-col items-center sm:items-start">

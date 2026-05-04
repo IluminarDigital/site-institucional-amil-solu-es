@@ -7,16 +7,15 @@ const serviceOptions = [
   "Coleta de Resíduos Sólidos",
   "Limpeza de Tanque de Combustível",
   "Limpeza de Lagoa Industrial",
-  "Respostas a Emergências Ambientais",
-  "Coleta, Transporte e Destinação",
+  "Atendimento Emergencial",
+  "Coleta, Transporte e Destinação de Resíduos Líquidos e Sólidos",
   "Limpeza de Equalizador",
-  "Limpeza de Caldeiras e Evaporadores",
-  "Limpeza de Superfícies Industriais",
+  "Limpeza de Caldeiras, Trocadores de Calor",
+  "Limpeza de Superfície",
   "Limpeza em Espaço Confinado",
-  "Desentupimento Residencial e Comercial",
-  "Limpeza de Caixa d'Água",
+  "Limpeza de Ultra Pressão",
+  "Desobstrução de Tubulações",
   "Afastamento de Pombos",
-  "Dedetização Geral",
 ];
 
 const socials = [
@@ -32,7 +31,7 @@ export default function ContactSection() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const msg = `Olá! Meu nome é ${form.nome}, da empresa ${form.empresa}. Telefone: ${form.telefone}. Tenho interesse no serviço: ${form.servico}. ${form.mensagem}`;
-    window.open(`https://api.whatsapp.com/send/?phone=5562986090307&text=${encodeURIComponent(msg)}`, "_blank");
+    window.open(`https://wa.me/5562986090307?text=${encodeURIComponent(msg)}`, "_blank");
   };
 
   const inputClass = (key: string) =>
@@ -115,7 +114,7 @@ export default function ContactSection() {
           {/* Informações */}
           {[
             { icon: Phone,  text: "(62) 3291-1000",                                            href: "tel:+556232911000" },
-            { icon: Mail,   text: "contato@amilambiental.com.br",                              href: "mailto:contato@amilambiental.com.br" },
+            { icon: Mail,   text: "comercial@amilgoiania.com.br",                              href: "mailto:comercial@amilgoiania.com.br" },
             { icon: MapPin, text: "R. São Fernando, 303 - Quadra 92, Lote 8 - Ipiranga, Goiânia - GO", href: "https://www.google.com/maps/search/R.+S%C3%A3o+Fernando,+303+Quadra+92+Lote+8+Ipiranga+Goi%C3%A2nia+GO" },
           ].map(item => (
             <div key={item.text} className="flex items-start gap-4">

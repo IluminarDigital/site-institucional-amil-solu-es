@@ -44,7 +44,7 @@ export default function CTASection() {
           className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-10 w-full"
         >
           <a
-            href="https://api.whatsapp.com/send/?phone=5562986090307"
+            href="https://wa.me/5562986090307"
             target="_blank" rel="noopener noreferrer"
             className="w-full sm:w-auto bg-white text-green-900 font-bold px-8 py-4 rounded-full hover:bg-green-50 transition-colors shadow-lg shadow-white/10 text-center"
           >
@@ -52,7 +52,7 @@ export default function CTASection() {
           </a>
           
           <a
-            href="https://api.whatsapp.com/send/?phone=5562986090307"
+            href="https://wa.me/5562986090307"
             target="_blank" rel="noopener noreferrer"
             className="w-full sm:w-auto border-2 border-white/40 text-white font-bold px-8 py-4 rounded-full hover:bg-white/10 transition-colors flex items-center justify-center gap-3"
           >
@@ -73,7 +73,7 @@ export default function CTASection() {
            className="mt-8 border-t border-white/20 w-full pt-6"
         >
           <p className="text-white/50 text-sm">
-            (62) 3291-1000 · contato@amilambiental.com.br
+            (62) 3291-1000 · comercial@amilgoiania.com.br
           </p>
         </motion.div>
       </div>
