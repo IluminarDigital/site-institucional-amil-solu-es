@@ -2,7 +2,8 @@
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="/site-institucional-amil-solu-es/logo-amil-transparent.png" />
+    <link rel="icon" type="image/png" href="/amilfavicon.png" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,8 +18,63 @@
     <meta property="og:image:height" content="630" />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
-    <script type="module" crossorigin src="/site-institucional-amil-solu-es/assets/index-52zLoF7s.js"></script>
-    <link rel="stylesheet" crossorigin href="/site-institucional-amil-solu-es/assets/index-BBfj5dLJ.css">
+
+    <!-- Google tag (gtag.js) - Google Ads -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17833347489"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-17833347489');
+
+      function gtagLead(urlOrEl, isBlank) {
+        var url = typeof urlOrEl === 'string' ? urlOrEl : (urlOrEl && urlOrEl.href);
+        if (!url) return true;
+        
+        if (isBlank === undefined) {
+          if (typeof urlOrEl === 'object' && urlOrEl.target === '_blank') {
+            isBlank = true;
+          } else {
+            var evt = window.event;
+            if (evt) {
+              var targetEl = evt.currentTarget || evt.target;
+              while (targetEl && targetEl.tagName !== 'A') {
+                targetEl = targetEl.parentNode;
+              }
+              if (targetEl && targetEl.target === '_blank') {
+                isBlank = true;
+              }
+            }
+          }
+        }
+
+        if (isBlank) {
+          gtag('event', 'conversion', {
+            'send_to': 'AW-17833347489/d8MXCJnwp44cEKGTzbdC',
+            'value': 0.0,
+            'currency': 'BRL'
+          });
+          return true;
+        }
+
+        var d = false;
+        var go = function() {
+          if (d) return;
+          d = true;
+          window.location.href = url;
+        };
+        gtag('event', 'conversion', {
+          'send_to': 'AW-17833347489/d8MXCJnwp44cEKGTzbdC',
+          'value': 0.0,
+          'currency': 'BRL',
+          'event_callback': go
+        });
+        setTimeout(go, 1200);
+        return false;
+      }
+    </script>
+    <script type="module" crossorigin src="/assets/index-CfHBdn9h.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-DXxKYt5V.css">
   </head>
 
   <body>
