@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { ChevronDown, ChevronRight, Menu, X, Factory, Droplets, Bug, MapPin } from "lucide-react";
+import { ChevronDown, ChevronRight, Menu, X, Factory, Droplets, Bug, MapPin, AlertTriangle } from "lucide-react";
 import { motion } from "framer-motion";
 import { services, segments } from "@/data/services";
 import { getImageUrl } from "@/lib/utils";
@@ -10,7 +10,8 @@ const WHATSAPP = "https://wa.me/5562986090307";
 
 const categories = [
   { label: "AMBIENTAL & INDUSTRIAL", icon: Factory, iconColor: "text-teal-600", items: services.filter(s => s.category === "AMBIENTAL E INDUSTRIAL") },
-  { label: "CONTROLE DE PRAGAS", icon: Bug, iconColor: "text-green-600", items: services.filter(s => s.category === "CONTROLE DE PRAGAS") },
+  { label: "ATENDIMENTO DE EMERGÊNCIA", subtitle: "Emergência Química e Ambiental", icon: AlertTriangle, iconColor: "text-red-600", items: services.filter(s => s.category === "ATENDIMENTO DE EMERGÊNCIA") },
+  { label: "CONTROLE DE PRAGAS", icon: Bug, iconColor: "text-lime", items: services.filter(s => s.category === "CONTROLE DE PRAGAS") },
 ];
 
 export default function Navbar() {
@@ -37,10 +38,9 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16 md:h-[72px]">
         <Link to="/">
           <img 
-            src={getImageUrl("/public/logo-amil-clean.png")} 
+            src={getImageUrl("/logo-amil-clean.png")} 
             alt="AMIL Soluções Ambientais" 
-            className="object-contain" 
-            style={{ height: "75px", width: "auto", background: "transparent !important", mixBlendMode: "multiply" }} 
+            className="h-[50px] md:h-[75px] w-auto object-contain" 
           />
         </Link>
 
@@ -57,10 +57,15 @@ export default function Navbar() {
                     {categories.map((cat, i) => (
                       <div key={cat.label} className="relative min-w-[220px]">
                         {i !== 0 && <div className="absolute -left-4 top-0 bottom-0 w-px bg-slate-100" />}
-                        <p className="text-xs font-bold text-petrol mb-4 flex items-center whitespace-nowrap">
-                          <cat.icon className={`w-4 h-4 mr-2 inline ${cat.iconColor}`} />
-                          {cat.label}
-                        </p>
+                        <div className="mb-4">
+                          <p className="text-xs font-bold text-petrol flex items-center whitespace-nowrap">
+                            <cat.icon className={`w-4 h-4 mr-2 inline ${cat.iconColor}`} />
+                            {cat.label}
+                          </p>
+                          {cat.subtitle && (
+                            <p className="text-[10px] text-slate-500 font-medium ml-6 mt-0.5">{cat.subtitle}</p>
+                          )}
+                        </div>
                         <div className="space-y-3">
                           {cat.items.map(s => (
                             <Link key={s.slug} to={`/servicos/${s.slug}`} className="block text-base text-slate-600 hover:text-azul transition-colors leading-snug whitespace-nowrap overflow-hidden text-ellipsis" onClick={() => setServicesOpen(false)}>
@@ -140,7 +145,20 @@ export default function Navbar() {
         </div>
 
         <div className="hidden lg:block">
-          <a href={WHATSAPP} target="_blank" rel="noopener noreferrer" className="inline-block bg-lime text-[#0a1a04] font-bold text-sm px-5 py-2.5 rounded-lg hover:scale-[1.02] transition-transform">
+          <a
+            href={WHATSAPP}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block bg-lime text-[#0a1a04] font-bold text-sm px-5 py-2.5 rounded-lg hover:scale-[1.02] transition-transform"
+            onClick={(e) => {
+              if (typeof window !== "undefined" && (window as any).gtagLead) {
+                const res = (window as any).gtagLead(WHATSAPP, true);
+                if (res === false) {
+                  e.preventDefault();
+                }
+              }
+            }}
+          >
             Solicitar Atendimento
           </a>
         </div>
@@ -164,10 +182,14 @@ export default function Navbar() {
               <div className="pl-4 space-y-3 mb-2 border-l-2 border-slate-100">
                 {categories.map(cat => (
                   <div key={cat.label} className="mb-3">
-                    <p className="text-[10px] font-semibold tracking-wider text-teal-600 uppercase mb-2 flex items-center">
-                      <cat.icon className="w-3 h-3 mr-1.5 inline" /> {cat.label}
-                    </p>
-                    <div className="space-y-2">
+                      <p className="text-[10px] font-semibold tracking-wider text-teal-600 uppercase mb-0.5 flex items-center">
+                        <cat.icon className="w-3 h-3 mr-1.5 inline" /> {cat.label}
+                      </p>
+                      {cat.subtitle && (
+                        <p className="text-[9px] text-slate-500 font-medium ml-5 mb-2">{cat.subtitle}</p>
+                      )}
+                      {!cat.subtitle && <div className="mb-2" />}
+                      <div className="space-y-2">
                       {cat.items.map(s => (
                         <Link key={s.slug} to={`/servicos/${s.slug}`} className="block text-xs text-petrol/80 py-1" onClick={() => setMobileOpen(false)}>{s.title}</Link>
                       ))}

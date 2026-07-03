@@ -8,6 +8,14 @@ export default function WhatsAppButton() {
       rel="noopener noreferrer"
       className="fixed bottom-6 right-6 z-50 w-14 h-14 bg-[#25D366] rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform"
       aria-label="WhatsApp"
+      onClick={(e) => {
+        if (typeof window !== "undefined" && (window as any).gtagLead) {
+          const res = (window as any).gtagLead(WHATSAPP_URL, true);
+          if (res === false) {
+            e.preventDefault();
+          }
+        }
+      }}
     >
       <span className="absolute inset-0 rounded-full bg-[#25D366] animate-pulse-ring" />
       <svg

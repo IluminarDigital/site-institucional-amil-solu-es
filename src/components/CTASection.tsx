@@ -44,8 +44,8 @@ export default function CTASection() {
           className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-10 w-full"
         >
           <a
-            href="https://wa.me/5562986090307"
-            target="_blank" rel="noopener noreferrer"
+            href="#contato"
+            onClick={() => document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' })}
             className="w-full sm:w-auto bg-white text-green-900 font-bold px-8 py-4 rounded-full hover:bg-green-50 transition-colors shadow-lg shadow-white/10 text-center"
           >
             Solicitar Diagnóstico Gratuito
@@ -55,6 +55,14 @@ export default function CTASection() {
             href="https://wa.me/5562986090307"
             target="_blank" rel="noopener noreferrer"
             className="w-full sm:w-auto border-2 border-white/40 text-white font-bold px-8 py-4 rounded-full hover:bg-white/10 transition-colors flex items-center justify-center gap-3"
+            onClick={(e) => {
+              if (typeof window !== "undefined" && (window as any).gtagLead) {
+                const res = (window as any).gtagLead("https://wa.me/5562986090307", true);
+                if (res === false) {
+                  e.preventDefault();
+                }
+              }
+            }}
           >
             <svg
               className="w-5 h-5 fill-current"

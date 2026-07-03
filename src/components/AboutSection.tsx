@@ -12,7 +12,7 @@ const mvvInline = [
   {
     icon: Eye,
     title: "Visão",
-    text: "Ser referência nacional em serviços ambientais e fabricação de equipamentos.",
+    text: "Ser referência nacional em serviços ambientais em todo Centro-Oeste.",
   },
   {
     icon: Heart,
@@ -27,7 +27,7 @@ export default function AboutSection() {
       {/* ── Grid: image (left) + institutional text + MVV (right) ── */}
       <div className="flex flex-col lg:grid lg:grid-cols-2 min-h-[600px]">
         {/* ── Left: globe image ── */}
-        <div className="relative flex items-center justify-center bg-transparent min-h-[400px] overflow-hidden">
+        <div className="relative flex items-center justify-center bg-transparent min-h-[400px] overflow-hidden order-2 lg:order-1">
           <motion.div
             animate={{ y: [-14, 14, -14] }}
             transition={{ y: { duration: 2.5, repeat: Infinity, ease: "easeInOut" } }}
@@ -36,7 +36,7 @@ export default function AboutSection() {
             <img
               src={getImageUrl("/globo -sem-fundo.png")}
               alt="Planeta Terra"
-              className="w-48 sm:w-64 md:w-full md:max-w-md mx-auto drop-shadow-2xl"
+              className="w-[260px] lg:w-full lg:max-w-md mx-auto drop-shadow-2xl mt-8 lg:mt-0"
               loading="lazy"
               width={800}
               height={800}
@@ -45,7 +45,7 @@ export default function AboutSection() {
         </div>
 
         {/* ── Right: text column + MVV inline ── */}
-        <div className="px-10 pb-12 pt-0 lg:px-16 lg:pb-[72px] lg:pt-0 flex flex-col justify-center text-left">
+        <div className="px-10 pb-12 pt-0 lg:px-16 lg:pb-[72px] lg:pt-0 flex flex-col justify-center text-left order-1 lg:order-2">
           {/* Label */}
           <motion.p
             initial={{ opacity: 0, y: 16 }}

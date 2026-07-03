@@ -203,6 +203,14 @@ export default function MvvPage() {
                 textDecoration: "none",
                 fontSize: "15px"
               }}
+              onClick={(e) => {
+                if (typeof window !== "undefined" && (window as any).gtagLead) {
+                  const res = (window as any).gtagLead(WHATSAPP_URL, true);
+                  if (res === false) {
+                    e.preventDefault();
+                  }
+                }
+              }}
             >
               Falar com nossa equipe
             </a>

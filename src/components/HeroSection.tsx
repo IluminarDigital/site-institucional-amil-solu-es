@@ -112,9 +112,8 @@ export default function HeroSection() {
             className="hero-buttons flex flex-col sm:flex-row gap-4 mb-0"
           >
             <a
-              href={WHATSAPP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#contato"
+              onClick={() => document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' })}
               className="inline-flex items-center justify-center text-center transition-all hover:scale-[1.03]"
               style={{
                 background: "#84cc16",

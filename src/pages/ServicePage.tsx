@@ -1,4 +1,4 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { ArrowLeft, CheckCircle } from "lucide-react";
 import { services, WHATSAPP_URL } from "@/data/services";
 import Navbar from "@/components/Navbar";
@@ -7,6 +7,7 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 import { getImageUrl } from "@/lib/utils";
 
 export default function ServicePage() {
+  const navigate = useNavigate();
   const { slug } = useParams();
   const service = services.find(s => s.slug === slug);
 
@@ -22,6 +23,26 @@ export default function ServicePage() {
       </>
     );
   }
+
+  const howItWorks = service.slug === "video-inspecao"
+    ? [
+        { step: "01", title: "Diagnóstico", desc: "Avaliação técnica do local e planejamento da inspeção." },
+        { step: "02", title: "Inspeção", desc: "Introdução da câmera robotizada na tubulação com transmissão de imagem em tempo real." },
+        { step: "03", title: "Relatório", desc: "Emissão de laudo técnico completo com imagens, vídeos e recomendações." },
+      ]
+    : [
+        { step: "01", title: "Diagnóstico", desc: "Avaliação técnica do local" },
+        { step: "02", title: "Execução", desc: "Operação com equipe especializada" },
+        { step: "03", title: "Relatório", desc: "Documentação e laudos técnicos" },
+      ];
+
+  const norms = service.slug === "video-inspecao"
+    ? ["NR-33 (Espaço Confinado)", "NR-35 (Trabalho em Altura)"]
+    : ["NR-20", "NR-33", "NR-35"];
+
+  const whyUs = service.slug === "video-inspecao"
+    ? ["Equipamentos de última geração", "Frota 100% própria", "Atendimento 24h", "Documentação e laudos completos"]
+    : ["Equipe certificada e treinada", "Frota 100% própria", "Atendimento 24h", "Documentação e laudos completos"];
 
   return (
     <>
@@ -59,11 +80,7 @@ export default function ServicePage() {
 
             <h2 className="font-bold text-2xl text-petrol mb-6">Como Funciona</h2>
             <div className="grid sm:grid-cols-3 gap-6 mb-12">
-              {[
-                { step: "01", title: "Diagnóstico", desc: "Avaliação técnica do local" },
-                { step: "02", title: "Execução", desc: "Operação com equipe especializada" },
-                { step: "03", title: "Relatório", desc: "Documentação e laudos técnicos" },
-              ].map(s => (
+              {howItWorks.map(s => (
                 <div key={s.step} className="bg-slate-50 rounded-2xl p-6 border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
                   <span className="text-4xl font-black text-verde/20 mb-3 block">{s.step}</span>
                   <h4 className="font-bold text-lg text-petrol mb-2">{s.title}</h4>
@@ -84,7 +101,7 @@ export default function ServicePage() {
 
             <h2 className="font-bold text-2xl text-petrol mb-6">Normas e Certificações</h2>
             <div className="flex flex-wrap gap-3 mb-10">
-              {["NR-20", "NR-33", "NR-35", "ISO 14001", "ANVISA"].map(badge => (
+              {norms.map(badge => (
                 <span key={badge} className="px-4 py-2 bg-teal-50 text-teal-700 border border-teal-200 rounded-full text-sm font-bold shadow-sm">
                   {badge}
                 </span>
@@ -97,7 +114,7 @@ export default function ServicePage() {
               <div className="bg-bg-light border border-[#d0e4f5] rounded-2xl p-8 shadow-xl">
                 <h3 className="font-bold text-xl text-petrol mb-6">Por que escolher a AMIL?</h3>
                 <div className="space-y-4 mb-8">
-                  {["Equipe certificada e treinada", "Frota 100% própria", "Atendimento 24h", "Documentação e laudos completos"].map(b => (
+                  {whyUs.map(b => (
                     <div key={b} className="flex items-center gap-3">
                       <CheckCircle size={18} className="text-verde flex-shrink-0" />
                       <p className="text-sm font-medium text-slate-700">{b}</p>
@@ -105,10 +122,26 @@ export default function ServicePage() {
                   ))}
                 </div>
                 <div className="space-y-3">
-                  <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-full bg-verde text-white font-bold text-base py-4 rounded-xl hover:bg-verde/90 shadow-lg shadow-verde/30 transition-all mb-2">
+                  <a
+                    href={WHATSAPP_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center w-full bg-verde text-white font-bold text-base py-4 rounded-xl hover:bg-verde/90 shadow-lg shadow-verde/30 transition-all mb-2"
+                    onClick={(e) => {
+                      if (typeof window !== "undefined" && (window as any).gtagLead) {
+                        const res = (window as any).gtagLead(WHATSAPP_URL, true);
+                        if (res === false) {
+                          e.preventDefault();
+                        }
+                      }
+                    }}
+                  >
                     Falar no WhatsApp
                   </a>
-                  <a href="#contato" className="flex items-center justify-center w-full bg-white border border-slate-200 text-petrol font-bold text-base py-4 rounded-xl hover:bg-slate-50 transition-all">
+                  <a
+                    onClick={() => { navigate('/'); setTimeout(() => { document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' }); }, 500); }}
+                    className="flex items-center justify-center w-full bg-white border border-slate-200 text-petrol font-bold text-base py-4 rounded-xl hover:bg-slate-50 transition-all cursor-pointer"
+                  >
                     Solicitar Diagnóstico
                   </a>
                 </div>
@@ -127,7 +160,20 @@ export default function ServicePage() {
           <h2 className="text-2xl md:text-3xl font-extrabold text-white mb-8">
             Precisa deste serviço? Fale com nossa equipe agora.
           </h2>
-          <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="inline-block bg-white text-teal-800 font-extrabold text-lg px-8 py-4 rounded-xl hover:scale-105 transition-transform shadow-xl">
+          <a
+            href={WHATSAPP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block bg-white text-teal-800 font-extrabold text-lg px-8 py-4 rounded-xl hover:scale-105 transition-transform shadow-xl"
+            onClick={(e) => {
+              if (typeof window !== "undefined" && (window as any).gtagLead) {
+                const res = (window as any).gtagLead(WHATSAPP_URL, true);
+                if (res === false) {
+                  e.preventDefault();
+                }
+              }
+            }}
+          >
             Solicitar Orçamento Gratuito
           </a>
         </div>

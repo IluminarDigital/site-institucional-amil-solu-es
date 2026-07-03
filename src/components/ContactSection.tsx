@@ -15,23 +15,52 @@ const serviceOptions = [
   "Limpeza em Espaço Confinado",
   "Limpeza de Ultra Pressão",
   "Desobstrução de Tubulações",
+  "Vídeo Inspeção",
   "Afastamento de Pombos",
 ];
 
 const socials = [
-  { icon: Instagram, href: "https://instagram.com/amilambiental",         label: "Instagram", bg: "linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)" },
-  { icon: Linkedin,  href: "https://linkedin.com/company/amilambiental",  label: "LinkedIn",  bg: "#0077B5" },
-  { icon: Facebook,  href: "https://facebook.com/amilambiental",          label: "Facebook",  bg: "#1877F2" },
+  { icon: Instagram, href: "https://www.instagram.com/amil.ambiental/",  label: "Instagram", bg: "linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888)" },
+  { icon: Linkedin,  href: "https://www.linkedin.com/company/amil-ambiental/?viewAsMember=true", label: "LinkedIn",  bg: "#0077B5" },
+  { icon: Facebook,  href: "https://facebook.com/amilambiental",         label: "Facebook",  bg: "#1877F2" },
 ];
 
 export default function ContactSection() {
   const [form, setForm] = useState({ nome: "", empresa: "", telefone: "", email: "", servico: "", mensagem: "" });
   const [focused, setFocused] = useState<string | null>(null);
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const msg = `Olá! Meu nome é ${form.nome}, da empresa ${form.empresa}. Telefone: ${form.telefone}. Tenho interesse no serviço: ${form.servico}. ${form.mensagem}`;
-    window.open(`https://wa.me/5562986090307?text=${encodeURIComponent(msg)}`, "_blank");
+    setStatus("loading");
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          access_key: "3f737688-bc03-4eee-a933-aa3c9b6bcded",
+          subject: `Novo contato via site - ${form.nome} (${form.empresa})`,
+          from_name: form.nome,
+          name: form.nome,
+          email: form.email,
+          empresa: form.empresa,
+          telefone: form.telefone,
+          servico: form.servico,
+          message: form.mensagem,
+        }),
+      });
+
+      const data = await response.json();
+      if (data.success) {
+        setStatus("success");
+        setForm({ nome: "", empresa: "", telefone: "", email: "", servico: "", mensagem: "" });
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
   };
 
   const inputClass = (key: string) =>
@@ -100,9 +129,21 @@ export default function ContactSection() {
                 placeholder="Mensagem"
               />
             </div>
-            <button type="submit" className="w-full bg-lime text-[#0a1a04] font-bold text-sm py-3.5 rounded-lg hover:scale-[1.02] transition-transform">
-              Enviar Mensagem
+
+            <button
+              type="submit"
+              disabled={status === "loading"}
+              className="w-full bg-lime text-[#0a1a04] font-bold text-sm py-3.5 rounded-lg hover:scale-[1.02] transition-transform disabled:opacity-70 disabled:cursor-not-allowed"
+            >
+              {status === "loading" ? "Enviando..." : "Enviar Mensagem"}
             </button>
+
+            {status === "success" && (
+              <p className="text-center text-lime text-sm font-medium">✅ Mensagem enviada com sucesso! Entraremos em contato em breve.</p>
+            )}
+            {status === "error" && (
+              <p className="text-center text-red-400 text-sm font-medium">❌ Erro ao enviar. Tente novamente ou entre em contato pelo WhatsApp.</p>
+            )}
           </form>
         </motion.div>
 
@@ -111,10 +152,9 @@ export default function ContactSection() {
           initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.2 }}
           className="flex flex-col justify-start gap-5"
         >
-          {/* Informações */}
           {[
-            { icon: Phone,  text: "(62) 3291-1000",                                            href: "tel:+556232911000" },
-            { icon: Mail,   text: "comercial@amilgoiania.com.br",                              href: "mailto:comercial@amilgoiania.com.br" },
+            { icon: Phone,  text: "(62) 3291-1000",                                                    href: "tel:+556232911000" },
+            { icon: Mail,   text: "comercial@amilgoiania.com.br",                                      href: "mailto:comercial@amilgoiania.com.br" },
             { icon: MapPin, text: "R. São Fernando, 303 - Quadra 92, Lote 8 - Ipiranga, Goiânia - GO", href: "https://www.google.com/maps/search/R.+S%C3%A3o+Fernando,+303+Quadra+92+Lote+8+Ipiranga+Goi%C3%A2nia+GO" },
           ].map(item => (
             <div key={item.text} className="flex items-start gap-4">
@@ -132,7 +172,6 @@ export default function ContactSection() {
             </div>
           ))}
 
-          {/* Horário */}
           <div className="flex items-start gap-4">
             <div className="w-10 h-10 rounded-full bg-verde/20 border border-verde/40 flex items-center justify-center flex-shrink-0">
               <Clock size={18} className="text-lime" />
@@ -143,7 +182,6 @@ export default function ContactSection() {
             </div>
           </div>
 
-          {/* Redes sociais */}
           <div className="flex gap-3 mt-1">
             {socials.map(({ icon: Icon, href, label, bg }) => (
               <a
@@ -160,10 +198,9 @@ export default function ContactSection() {
             ))}
           </div>
 
-          {/* Mapa */}
           <div className="mt-2 rounded-xl overflow-hidden">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3822.5!2d-49.28!3d-16.68!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTbCsDQwJzQ4LjAiUyA0OcKwMTYnNDguMCJX!5e0!3m2!1spt-BR!2sbr!4v1"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4533.997910305937!2d-49.3306799!3d-16.6621342!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935ef5ae1127a47d%3A0x12c6fd9e3dbab16e!2sR.%20S%C3%A3o%20Fernando%2C%20303%20-%20Quadra%2092%20Lote%208%20-%20Ipiranga%2C%20Goi%C3%A2nia%20-%20GO%2C%2074453-310!5e1!3m2!1spt-BR!2sbr!4v1780068023709!5m2!1spt-BR!2sbr"
               width="100%"
               height="250"
               style={{ border: 0, borderRadius: "12px" }}

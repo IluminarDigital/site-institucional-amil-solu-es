@@ -24,7 +24,6 @@ export default function ServicesSection() {
                 <Link to={`/servicos/${s.slug}`} className="group block bg-white border border-[#d8e8f5] rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-[10px] hover:shadow-[0_12px_40px_-10px_rgba(10,39,68,0.18)] hover:border-verde/40">
                   <div className="relative h-[200px] overflow-hidden">
                     <img src={getImageUrl(s.image)} alt={s.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy" />
-                    <span className="absolute top-3 left-3 text-[10px] font-semibold tracking-wider uppercase text-[#b0c8e0]">{s.number}</span>
                   </div>
                   <div className="p-3 md:p-4">
                     <h3 className="font-bold text-base text-petrol mb-1.5 leading-snug pt-1">{s.title}</h3>

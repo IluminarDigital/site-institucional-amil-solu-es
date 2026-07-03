@@ -89,7 +89,7 @@ export const services: ServiceData[] = [
     id: "10", number: "10", title: "Limpeza em Espaço Confinado", slug: "espaco-confinado",
     description: "Operações seguras em ambientes confinados conforme NR-33.",
     longDescription: "Execução de limpeza e manutenção em espaços confinados (tanques, silos, dutos, galerias) em total conformidade com a NR-33. Equipe certificada, monitoramento atmosférico contínuo e plano de resgate.",
-    image: "/public/limpezaemespacoconfinado.png",
+    image: "/limpezaemespacoconfinado.png",
     category: "AMBIENTAL E INDUSTRIAL",
     benefits: ["Conformidade com NR-33", "Monitoramento atmosférico contínuo", "Plano de resgate estruturado", "Equipe certificada"]
   },
@@ -116,6 +116,21 @@ export const services: ServiceData[] = [
     image: "/afastamento%20de%20pombos.jpeg",
     category: "CONTROLE DE PRAGAS",
     benefits: ["Manejo humanitário", "Barreiras físicas duráveis", "Proteção de fachadas e telhados", "Prevenção de riscos sanitários"]
+  },
+  {
+    id: "17", number: "14", title: "Vídeo Inspeção", slug: "video-inspecao",
+    description: "Inspeção interna de tubulações e redes com câmera de alta definição para diagnóstico preciso de falhas, obstruções e patologias.",
+    longDescription: "Serviço especializado de inspeção interna de tubulações, redes de esgoto, galerias e dutos industriais utilizando câmeras robotizadas de alta definição. Permite identificar com precisão obstruções, infiltrações, corrosões, trincas e patologias estruturais sem necessidade de escavação ou interrupção das operações.",
+    image: "/videoinspecao.png",
+    category: "AMBIENTAL E INDUSTRIAL",
+    benefits: [
+      "Câmera de alta definição com gravação",
+      "Relatório técnico com imagens e vídeos",
+      "Identificação precisa de patologias",
+      "Laudo para laudos regulatórios",
+      "Atendimento 24h para emergências",
+      "Equipe técnica certificada"
+    ]
   },
 ];
 

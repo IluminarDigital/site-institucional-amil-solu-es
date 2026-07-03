@@ -106,10 +106,36 @@ export default function SegmentPage() {
                   ))}
                 </div>
                 <div className="space-y-3">
-                  <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-full bg-verde text-white font-bold text-base py-4 rounded-xl hover:bg-verde/90 shadow-lg shadow-verde/30 transition-all mb-2">
+                  <a
+                    href={WHATSAPP_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center w-full bg-verde text-white font-bold text-base py-4 rounded-xl hover:bg-verde/90 shadow-lg shadow-verde/30 transition-all mb-2"
+                    onClick={(e) => {
+                      if (typeof window !== "undefined" && (window as any).gtagLead) {
+                        const res = (window as any).gtagLead(WHATSAPP_URL, true);
+                        if (res === false) {
+                          e.preventDefault();
+                        }
+                      }
+                    }}
+                  >
                     Solicitar Atendimento
                   </a>
-                  <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center w-full bg-white border border-slate-200 text-petrol font-bold text-base py-4 rounded-xl hover:bg-slate-50 transition-all">
+                  <a
+                    href={WHATSAPP_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center w-full bg-white border border-slate-200 text-petrol font-bold text-base py-4 rounded-xl hover:bg-slate-50 transition-all"
+                    onClick={(e) => {
+                      if (typeof window !== "undefined" && (window as any).gtagLead) {
+                        const res = (window as any).gtagLead(WHATSAPP_URL, true);
+                        if (res === false) {
+                          e.preventDefault();
+                        }
+                      }
+                    }}
+                  >
                     Falar no WhatsApp
                   </a>
                 </div>
@@ -125,7 +151,20 @@ export default function SegmentPage() {
           <h2 className="text-2xl md:text-3xl font-extrabold text-white mb-8">
             Atendemos este segmento em todo o Brasil.
           </h2>
-          <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="inline-block bg-white text-teal-800 font-extrabold text-lg px-8 py-4 rounded-xl hover:scale-105 transition-transform shadow-xl">
+          <a
+            href={WHATSAPP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block bg-white text-teal-800 font-extrabold text-lg px-8 py-4 rounded-xl hover:scale-105 transition-transform shadow-xl"
+            onClick={(e) => {
+              if (typeof window !== "undefined" && (window as any).gtagLead) {
+                const res = (window as any).gtagLead(WHATSAPP_URL, true);
+                if (res === false) {
+                  e.preventDefault();
+                }
+              }
+            }}
+          >
             Fale com um especialista
           </a>
         </div>

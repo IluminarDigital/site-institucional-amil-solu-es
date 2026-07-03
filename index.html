@@ -18,6 +18,61 @@
     <meta property="og:image:height" content="630" />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Google tag (gtag.js) - Google Ads -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17833347489"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-17833347489');
+
+      function gtagLead(urlOrEl, isBlank) {
+        var url = typeof urlOrEl === 'string' ? urlOrEl : (urlOrEl && urlOrEl.href);
+        if (!url) return true;
+        
+        if (isBlank === undefined) {
+          if (typeof urlOrEl === 'object' && urlOrEl.target === '_blank') {
+            isBlank = true;
+          } else {
+            var evt = window.event;
+            if (evt) {
+              var targetEl = evt.currentTarget || evt.target;
+              while (targetEl && targetEl.tagName !== 'A') {
+                targetEl = targetEl.parentNode;
+              }
+              if (targetEl && targetEl.target === '_blank') {
+                isBlank = true;
+              }
+            }
+          }
+        }
+
+        if (isBlank) {
+          gtag('event', 'conversion', {
+            'send_to': 'AW-17833347489/d8MXCJnwp44cEKGTzbdC',
+            'value': 0.0,
+            'currency': 'BRL'
+          });
+          return true;
+        }
+
+        var d = false;
+        var go = function() {
+          if (d) return;
+          d = true;
+          window.location.href = url;
+        };
+        gtag('event', 'conversion', {
+          'send_to': 'AW-17833347489/d8MXCJnwp44cEKGTzbdC',
+          'value': 0.0,
+          'currency': 'BRL',
+          'event_callback': go
+        });
+        setTimeout(go, 1200);
+        return false;
+      }
+    </script>
   </head>
 
   <body>

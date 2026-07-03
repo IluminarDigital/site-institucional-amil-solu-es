@@ -91,19 +91,24 @@ section.content-section {
 /* ── Hero mobile overrides ── */
 @media (max-width: 768px) {
   .hero-content {
-    padding: 100px 24px 40px !important;
+    padding: 100px 20px 40px !important;
   }
-  .hero-h1 {
-    font-size: 38px !important;
+  .hero-h1 span {
+    font-size: 36px !important;
+    line-height: 1.1 !important;
   }
   .hero-subtitle {
     font-size: 15px !important;
   }
   .hero-stats {
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    gap: 16px !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 24px !important;
     max-width: 100% !important;
+    margin-top: 32px !important;
+  }
+  .hero-stats span:first-child {
+    font-size: 24px !important;
   }
   .hero-sep {
     display: none !important;

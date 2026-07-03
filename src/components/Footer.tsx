@@ -78,7 +78,10 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 px-4 sm:px-0">
-          <p className="text-xs sm:text-sm text-white/30 text-center sm:text-left">© {new Date().getFullYear()} Grupo Amil Ambiental. Todos os direitos reservados.</p>
+          <p className="text-xs sm:text-sm text-white/30 text-center sm:text-left">
+            © {new Date().getFullYear()} Grupo Amil Ambiental. Todos os direitos reservados.
+            <span className="block sm:inline sm:ml-2">CNPJ: 63.944.619/0001-74</span>
+          </p>
           <a href={AMIL_NEWS} target="_blank" rel="noopener noreferrer" className="text-xs sm:text-sm text-white/30 hover:text-azul transition-colors text-center sm:text-right">Amil News</a>
         </div>
       </div>
