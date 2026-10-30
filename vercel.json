@@ -1,0 +1,50 @@
+{
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/segmentos/ind-strias-em-geral",
+      "destination": "/segmentos/industrias-em-geral/",
+      "permanent": true
+    },
+    {
+      "source": "/segmentos/ind-strias-qu-micas-petroqu-micas-e-leo-g-s",
+      "destination": "/segmentos/industrias-quimicas-petroquimicas-e-oleo-gas/",
+      "permanent": true
+    },
+    {
+      "source": "/segmentos/alimentos-bebidas-higiene-e-farmac-uticas",
+      "destination": "/segmentos/alimentos-bebidas-higiene-e-farmaceuticas/",
+      "permanent": true
+    },
+    {
+      "source": "/segmentos/minera-o-siderurgia-e-metalurgia",
+      "destination": "/segmentos/mineracao-siderurgia-e-metalurgia/",
+      "permanent": true
+    },
+    {
+      "source": "/segmentos/log-stica-transportes-e-armazenagem",
+      "destination": "/segmentos/logistica-transportes-e-armazenagem/",
+      "permanent": true
+    },
+    {
+      "source": "/segmentos/constru-o-civil-e-infraestrutura",
+      "destination": "/segmentos/construcao-civil-e-infraestrutura/",
+      "permanent": true
+    },
+    {
+      "source": "/segmentos/agroneg-cio",
+      "destination": "/segmentos/agronegocio/",
+      "permanent": true
+    },
+    {
+      "source": "/segmentos/com-rcio-condom-nios-e-servi-os",
+      "destination": "/segmentos/comercio-condominios-e-servicos/",
+      "permanent": true
+    }
+  ]
+}
