@@ -1,3 +1,4 @@
+import { segmentSlug, legacySegmentSlug } from "@/lib/seo";
 import { useParams, Link } from "react-router-dom";
 import { ArrowLeft, CheckCircle, Factory, ShieldCheck } from "lucide-react";
 import { segments, services, WHATSAPP_URL } from "@/data/services";
@@ -10,7 +11,7 @@ export default function SegmentPage() {
   const { slug } = useParams();
   // slug = "industrias-em-geral"
   const segment = segments.find(
-    s => s.name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "") === slug
+    s => (segmentSlug(s.name) === slug || legacySegmentSlug(s.name) === slug)
   );
 
   if (!segment) {
@@ -49,7 +50,7 @@ export default function SegmentPage() {
         <div className="relative h-72 lg:h-96 w-full flex items-center">
           <div
             className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: `url('${getImageUrl("/hero-bg.jpg")}')` }}
+            style={{ backgroundImage: `url('${getImageUrl("/hero-bg.webp")}')` }}
           />
           <div className="absolute inset-0 bg-gradient-to-r from-petrol-dark/95 via-teal-900/90 to-verde/80" />
           

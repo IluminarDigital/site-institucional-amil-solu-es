@@ -1,4 +1,4 @@
-import { useParams, Link, useNavigate } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { ArrowLeft, CheckCircle } from "lucide-react";
 import { services, WHATSAPP_URL } from "@/data/services";
 import Navbar from "@/components/Navbar";
@@ -7,7 +7,7 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 import { getImageUrl } from "@/lib/utils";
 
 export default function ServicePage() {
-  const navigate = useNavigate();
+
   const { slug } = useParams();
   const service = services.find(s => s.slug === slug);
 
@@ -139,7 +139,7 @@ export default function ServicePage() {
                     Falar no WhatsApp
                   </a>
                   <a
-                    onClick={() => { navigate('/'); setTimeout(() => { document.getElementById('contato')?.scrollIntoView({ behavior: 'smooth' }); }, 500); }}
+                    href="/#contato"
                     className="flex items-center justify-center w-full bg-white border border-slate-200 text-petrol font-bold text-base py-4 rounded-xl hover:bg-slate-50 transition-all cursor-pointer"
                   >
                     Solicitar Diagnóstico

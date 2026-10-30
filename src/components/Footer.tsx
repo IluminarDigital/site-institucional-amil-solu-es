@@ -1,3 +1,4 @@
+import { segmentSlug } from "@/lib/seo";
 import { Link } from "react-router-dom";
 import { Phone, Mail, Globe } from "lucide-react";
 import { services, segments } from "@/data/services";
@@ -14,9 +15,12 @@ export default function Footer() {
           <div className="flex flex-col items-center sm:items-start text-center sm:text-left">
             <div>
               <img
-                src={getImageUrl("/logo-amil-transparent.png")}
+                src={getImageUrl("/logo-amil-transparent.webp")}
                 alt="AMIL Soluções Ambientais"
                 className="w-36 mb-1 object-contain"
+                width={144}
+                height={60}
+                loading="lazy"
               />
             </div>
             <p className="text-base text-white/50 leading-relaxed mb-6">
@@ -55,7 +59,7 @@ export default function Footer() {
             <h4 className="font-bold text-base text-white mb-4">Segmentos</h4>
             <div className="space-y-1.5 flex flex-col items-center sm:items-start">
               {segments.map(seg => {
-                const slug = seg.name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+                const slug = segmentSlug(seg.name);
                 return (
                   <Link key={seg.name} to={`/segmentos/${slug}`} onClick={() => window.scrollTo(0, 0)} className="block text-sm text-white/50 hover:text-white transition-colors">
                     {seg.name}
@@ -69,9 +73,9 @@ export default function Footer() {
           <div className="flex flex-col items-center sm:items-start w-full">
             <h4 className="font-bold text-base text-white mb-4">Empresa</h4>
             <div className="space-y-1.5 flex flex-col items-center sm:items-start">
-              <a href="#sobre" className="block text-sm text-white/50 hover:text-white transition-colors">Sobre Nós</a>
-              <a href="#servicos" className="block text-sm text-white/50 hover:text-white transition-colors">Serviços</a>
-              <a href="#contato" className="block text-sm text-white/50 hover:text-white transition-colors">Contato</a>
+              <a href="/#sobre" className="block text-sm text-white/50 hover:text-white transition-colors">Sobre Nós</a>
+              <a href="/#servicos" className="block text-sm text-white/50 hover:text-white transition-colors">Serviços</a>
+              <a href="/#contato" className="block text-sm text-white/50 hover:text-white transition-colors">Contato</a>
               <a href={AMIL_NEWS} target="_blank" rel="noopener noreferrer" className="block text-sm text-white/50 hover:text-white transition-colors">Amil News</a>
             </div>
           </div>

@@ -34,7 +34,7 @@ export default function AboutSection() {
             className="relative w-full flex justify-center p-8 pb-24"
           >
             <img
-              src={getImageUrl("/globo -sem-fundo.png")}
+              src={getImageUrl("/globo -sem-fundo.webp")}
               alt="Planeta Terra"
               className="w-[260px] lg:w-full lg:max-w-md mx-auto drop-shadow-2xl mt-8 lg:mt-0"
               loading="lazy"

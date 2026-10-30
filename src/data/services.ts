@@ -16,8 +16,8 @@ export const services: ServiceData[] = [
   {
     id: "1", number: "01", title: "Limpeza de Caixa Separadora", slug: "limpeza-caixa-separadora",
     description: "Remoção segura de resíduos oleosos e sólidos em caixas separadoras de água e óleo.",
-    longDescription: "Serviço especializado na remoção de resíduos oleosos, sólidos decantados e materiais acumulados em caixas separadoras de água e óleo (SAO). Utilizamos equipamentos de sucção a vácuo de alta potência para garantir eficiência total na operation, com destinação ambientalmente correta de todos os resíduos coletados.",
-    image: "/limpezacaixaseparadora.png",
+    longDescription: "Serviço especializado na remoção de resíduos oleosos, sólidos decantados e materiais acumulados em caixas separadoras de água e óleo (SAO). Utilizamos equipamentos de sucção a vácuo de alta potência para garantir eficiência total na operação, com destinação ambientalmente correta de todos os resíduos coletados.",
+    image: "/limpezacaixaseparadora.webp",
     category: "AMBIENTAL E INDUSTRIAL",
     benefits: ["Equipe especializada com EPIs adequados", "Sucção a vácuo de alta potência", "Destinação correta dos resíduos", "Relatório técnico completo"]
   },
@@ -25,7 +25,7 @@ export const services: ServiceData[] = [
     id: "2", number: "02", title: "Coleta de Resíduos Sólidos", slug: "coleta-residuos-solidos",
     description: "Coleta, transporte e destinação final de resíduos sólidos industriais e comerciais.",
     longDescription: "Realizamos a coleta, transporte e destinação final de resíduos sólidos industriais e comerciais, atendendo às normas ambientais vigentes. Nossa frota própria garante agilidade e rastreabilidade em toda a cadeia de gestão de resíduos.",
-    image: "/coletadereisudossolidos.png",
+    image: "/coletadereisudossolidos.webp",
     category: "AMBIENTAL E INDUSTRIAL",
     benefits: ["Frota própria rastreada", "Conformidade com normas CONAMA", "Certificado de destinação final", "Atendimento programado ou emergencial"]
   },
@@ -33,7 +33,7 @@ export const services: ServiceData[] = [
     id: "3", number: "03", title: "Limpeza de Tanque de Combustível", slug: "limpeza-tanque-combustivel",
     description: "Limpeza técnica de tanques subterrâneos e aéreos conforme NR-20.",
     longDescription: "Serviço de limpeza técnica de tanques de combustível subterrâneos e aéreos, realizado em conformidade com a NR-20, NR-35 e NR-33. Inclui desgaseificação, remoção de borra, jateamento interno, garantindo segurança operacional e ambiental.",
-    image: "/limpezadetanquedecombustivel.png",
+    image: "/limpezadetanquedecombustivel.webp",
     category: "AMBIENTAL E INDUSTRIAL",
     benefits: ["Conformidade com NR-20", "Desgaseificação segura", "Equipe certificada", "Laudo técnico incluso"]
   },
@@ -41,7 +41,7 @@ export const services: ServiceData[] = [
     id: "4", number: "04", title: "Limpeza de Lagoa Industrial", slug: "limpeza-lagoa-industrial",
     description: "Dragagem e limpeza de lagoas de tratamento e decantação industrial.",
     longDescription: "Realizamos limpeza de lagoas de tratamento, decantação e estabilização industrial. Utilizamos equipamentos de sucção de grande porte para remoção de lodo e sedimentos, com posterior destinação ambiental adequada.",
-    image: "/limpezadelagoaindustrial.png",
+    image: "/limpezadelagoaindustrial.webp",
     category: "AMBIENTAL E INDUSTRIAL",
     benefits: ["Equipamentos de grande porte", "Remoção completa de sedimentos", "Destinação ambiental adequada", "Mínima interferência operacional"]
   },
@@ -49,15 +49,15 @@ export const services: ServiceData[] = [
     id: "5", number: "05", title: "Atendimento Emergencial", slug: "atendimento-emergencial",
     description: "Atendimento imediato a acidentes ambientais com equipe 24h.",
     longDescription: "Serviço de resposta rápida a emergências ambientais, incluindo derramamentos, vazamentos e contaminações. Contamos com equipe de plantão 24h e frota equipada para mobilização imediata em qualquer cenário de crise ambiental.",
-    image: "/respostasaemergenciasambientais.png",
-    category: "AMBIENTAL E INDUSTRIAL",
+    image: "/respostasaemergenciasambientais.webp",
+    category: "ATENDIMENTO DE EMERGÊNCIA",
     benefits: ["Plantão 24 horas", "Mobilização imediata", "Equipe treinada em emergências", "Relatório ambiental completo"]
   },
   {
     id: "6", number: "06", title: "Coleta, Transporte e Destinação de Resíduos Líquidos e Sólidos", slug: "coleta-transporte-destinacao-residuos",
     description: "Gestão completa de resíduos com rastreabilidade e documentação.",
     longDescription: "Gerenciamento completo da cadeia de resíduos: coleta no local de geração, transporte seguro com rastreamento por GPS e destinação final licenciada. Emitimos toda a documentação legal necessária.",
-    image: "/coleta-transporte-destinacao.png",
+    image: "/coleta-transporte-destinacao.webp",
     category: "AMBIENTAL E INDUSTRIAL",
     benefits: ["Rastreamento por GPS", "Documentação legal completa", "Unidades de destinação licenciadas", "Gestão integrada de resíduos"]
   },
@@ -65,7 +65,7 @@ export const services: ServiceData[] = [
     id: "7", number: "07", title: "Limpeza de Equalizador", slug: "limpeza-equalizador",
     description: "Limpeza e manutenção de tanques equalizadores de estações de tratamento.",
     longDescription: "Serviço especializado de limpeza de tanques equalizadores em estações de tratamento de efluentes. Garantimos a remoção completa de sedimentos e a destinação correta dos resíduos.",
-    image: "/limpezadeequalizador.png",
+    image: "/limpezadeequalizador.webp",
     category: "AMBIENTAL E INDUSTRIAL",
     benefits: ["Restauração da capacidade operacional", "Remoção completa de sedimentos", "Equipe técnica especializada", "Mínimo tempo de parada"]
   },
@@ -73,7 +73,7 @@ export const services: ServiceData[] = [
     id: "8", number: "08", title: "Limpeza de Caldeiras, Trocadores de Calor", slug: "limpeza-caldeiras-trocadores",
     description: "Hidrojateamento de alta pressão em equipamentos industriais térmicos.",
     longDescription: "Limpeza técnica de caldeiras, evaporadores e trocadores de calor utilizando hidrojateamento de alta pressão. Removemos incrustações, depósitos minerais e resíduos que comprometem a eficiência energética dos equipamentos.",
-    image: "/limpezadecaldeiraseevaporadores.png",
+    image: "/limpezadecaldeiraseevaporadores.webp",
     category: "AMBIENTAL E INDUSTRIAL",
     benefits: ["Hidrojato de alta pressão", "Melhora na eficiência energética", "Extensão da vida útil dos equipamentos", "Operação sem produtos químicos agressivos"]
   },
@@ -81,7 +81,7 @@ export const services: ServiceData[] = [
     id: "9", number: "09", title: "Limpeza de Superfície", slug: "limpeza-superficie",
     description: "Hidrojateamento para pisos, paredes, estruturas e áreas externas.",
     longDescription: "Serviço de limpeza de superfícies industriais com hidrojateamento de alta e ultra-alta pressão. Ideal para remoção de resíduos aderidos em pisos, paredes, estruturas metálicas e áreas de produção.",
-    image: "/Limpeza%20de%20Superf%C3%ADcies%20Industriais.png",
+    image: "/Limpeza de Superfícies Industriais.webp",
     category: "AMBIENTAL E INDUSTRIAL",
     benefits: ["Hidrojato de alta e ultra-alta pressão", "Remoção de resíduos aderidos", "Aplicação em diversas superfícies", "Sem uso de agentes químicos"]
   },
@@ -89,7 +89,7 @@ export const services: ServiceData[] = [
     id: "10", number: "10", title: "Limpeza em Espaço Confinado", slug: "espaco-confinado",
     description: "Operações seguras em ambientes confinados conforme NR-33.",
     longDescription: "Execução de limpeza e manutenção em espaços confinados (tanques, silos, dutos, galerias) em total conformidade com a NR-33. Equipe certificada, monitoramento atmosférico contínuo e plano de resgate.",
-    image: "/limpezaemespacoconfinado.png",
+    image: "/limpezaemespacoconfinado.webp",
     category: "AMBIENTAL E INDUSTRIAL",
     benefits: ["Conformidade com NR-33", "Monitoramento atmosférico contínuo", "Plano de resgate estruturado", "Equipe certificada"]
   },
@@ -97,7 +97,7 @@ export const services: ServiceData[] = [
     id: "15", number: "11", title: "Limpeza de Ultra Pressão", slug: "limpeza-ultra-pressao",
     description: "Limpeza industrial com equipamentos de ultra alta pressão para remoção de incrustações em superfícies e tubulações.",
     longDescription: "Utilizamos tecnologia de ultra alta pressão (UAP) para remover as incrustações mais severas em ambientes industriais. Ideal para limpeza de trocadores de calor, reatores, tanques e tubulações com resíduos petrificados ou altamente aderidos, sem danificar a estrutura base.",
-    image: "/limpezaultrapressao.png",
+    image: "/limpezaultrapressao.webp",
     category: "AMBIENTAL E INDUSTRIAL",
     benefits: ["Ultra alta pressão", "Remoção de incrustações severas", "Zero uso de abrasivos químicos", "Máxima eficiência em grandes equipamentos"]
   },
@@ -105,7 +105,7 @@ export const services: ServiceData[] = [
     id: "16", number: "12", title: "Desobstrução de Tubulações", slug: "desobstrucao-tubulacoes",
     description: "Desobstrução de tubulações industriais com alta pressão e sucção a vácuo, garantindo o fluxo adequado.",
     longDescription: "Soluções completas para desobstrução de redes de esgoto, galerias pluviais e tubulações de processos industriais. Combinamos hidrojateamento de alta pressão para quebra de obstruções e sucção a vácuo para remoção imediata dos detritos.",
-    image: "/desobstrucaodetubulacoes.png",
+    image: "/desobstrucaodetubulacoes.webp",
     category: "AMBIENTAL E INDUSTRIAL",
     benefits: ["Alta pressão e sucção combinadas", "Limpeza preventiva e corretiva", "Restabelecimento imediato do fluxo", "Equipamentos adaptáveis a diversos diâmetros"]
   },
@@ -113,7 +113,7 @@ export const services: ServiceData[] = [
     id: "13", number: "13", title: "Afastamento de Pombos", slug: "afastamento-pombos",
     description: "Instalação de barreiras físicas e manejo humanitário de pombos.",
     longDescription: "Serviço de afastamento de pombos com instalação de barreiras físicas (espículas, telas, redes) e manejo humanitário. Protegemos fachadas, telhados e áreas internas contra danos e riscos sanitários causados por pombos.",
-    image: "/afastamento%20de%20pombos.jpeg",
+    image: "/afastamento de pombos.webp",
     category: "CONTROLE DE PRAGAS",
     benefits: ["Manejo humanitário", "Barreiras físicas duráveis", "Proteção de fachadas e telhados", "Prevenção de riscos sanitários"]
   },
@@ -121,7 +121,7 @@ export const services: ServiceData[] = [
     id: "17", number: "14", title: "Vídeo Inspeção", slug: "video-inspecao",
     description: "Inspeção interna de tubulações e redes com câmera de alta definição para diagnóstico preciso de falhas, obstruções e patologias.",
     longDescription: "Serviço especializado de inspeção interna de tubulações, redes de esgoto, galerias e dutos industriais utilizando câmeras robotizadas de alta definição. Permite identificar com precisão obstruções, infiltrações, corrosões, trincas e patologias estruturais sem necessidade de escavação ou interrupção das operações.",
-    image: "/videoinspecao.png",
+    image: "/videoinspecao.webp",
     category: "AMBIENTAL E INDUSTRIAL",
     benefits: [
       "Câmera de alta definição com gravação",
@@ -137,7 +137,7 @@ export const services: ServiceData[] = [
 export const segments = [
   {
     name: "Indústrias em Geral",
-    description: "Atendemos indústrias de todos os portes with soluções completas de limpeza técnica, gestão e destinação de resíduos industriais.",
+    description: "Atendemos indústrias de todos os portes com soluções completas de limpeza técnica, gestão e destinação de resíduos industriais.",
     services: ["Limpeza de caixa separadora", "Coleta e destinação de resíduos", "Limpeza em espaço confinado", "Limpeza de superfície"],
     icon: "Factory"
   },

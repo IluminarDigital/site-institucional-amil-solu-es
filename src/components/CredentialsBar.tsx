@@ -1,7 +1,7 @@
 import { Award, Truck, Clock, MapPin } from "lucide-react";
 
 const items = [
-  { text: "+10 anos de experiência", icon: Award },
+  { text: "+15 anos de experiência", icon: Award },
   { text: "Frota Própria", icon: Truck },
   { text: "Atendimento 24h", icon: Clock },
   { text: "Atuação Regional e Interestadual", icon: MapPin },

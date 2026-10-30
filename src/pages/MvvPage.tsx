@@ -29,7 +29,7 @@ export default function MvvPage() {
         >
           <div
             className="absolute inset-0 bg-cover bg-center"
-            style={{ backgroundImage: `url('${getImageUrl("/hero-bg.jpg")}')` }}
+            style={{ backgroundImage: `url('${getImageUrl("/hero-bg.webp")}')` }}
           />
           <div className="absolute inset-0 bg-gradient-to-r from-[#0d2a1a]/90 to-[#0d2a1a]/50" />
           

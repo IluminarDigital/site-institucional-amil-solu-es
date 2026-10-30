@@ -4,7 +4,7 @@ import { Clock, Truck, Award, Layers } from "lucide-react";
 const items = [
   { num: "24h", title: "Atendimento emergencial", desc: "Plantão todos os dias do ano, inclusive feriados.", icon: Clock, bg: "bg-cyan-100", color: "text-cyan-600" },
   { num: "100%", title: "Frota própria", desc: "Controle total da operação com rastreamento GPS.", icon: Truck, bg: "bg-green-100", color: "text-green-600" },
-  { num: "+10", title: "Anos de mercado", desc: "Experiência em operações complexas e de alta criticidade.", icon: Award, bg: "bg-amber-100", color: "text-amber-600" },
+  { num: "+15", title: "Anos de mercado", desc: "Experiência em operações complexas e de alta criticidade.", icon: Award, bg: "bg-amber-100", color: "text-amber-600" },
   { num: "Multi", title: "Soluções personalizadas", desc: "Diagnóstico específico para cada cliente e segmento.", icon: Layers, bg: "bg-teal-100", color: "text-teal-600" },
 ];
 
@@ -26,7 +26,7 @@ export default function DifferentialsSection() {
                 <item.icon className={item.color} size={24} />
               </div>
               <p className="font-black text-5xl text-petrol mt-2">{item.num}</p>
-              <p className="font-bold text-lg text-slate-700 mt-1">{item.title}</p>
+              <h3 className="font-bold text-lg text-slate-700 mt-1">{item.title}</h3>
               <p className="text-base text-slate-500 mt-2">{item.desc}</p>
             </motion.div>
           ))}

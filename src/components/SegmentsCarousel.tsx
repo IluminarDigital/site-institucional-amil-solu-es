@@ -1,3 +1,4 @@
+import { segmentSlug } from "@/lib/seo";
 import { useState, useEffect, useRef, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { ChevronLeft, ChevronRight, Factory, FlaskConical, Apple, Mountain, TreePine, Truck, Building2, Wheat, Store, ShieldCheck } from "lucide-react";
@@ -140,7 +141,7 @@ export default function SegmentsCarousel() {
           >
             {extended.map((seg, i) => {
               const Icon = iconMap[seg.icon] || Factory;
-              const slug = seg.name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+              const slug = segmentSlug(seg.name);
               return (
                 <div
                   key={i}

@@ -84,12 +84,15 @@ export default function ContactSection() {
             ].map(f => (
               <div key={f.key} className="relative">
                 <motion.label
+                  htmlFor={`contato-${f.key}`}
                   animate={{ y: focused === f.key || form[f.key as keyof typeof form] ? -24 : 0, scale: focused === f.key || form[f.key as keyof typeof form] ? 0.85 : 1 }}
                   className="absolute left-4 top-3 text-sm text-white pointer-events-none origin-left"
                 >
                   {f.label}
                 </motion.label>
                 <input
+                  id={`contato-${f.key}`}
+                  name={f.key}
                   type={f.type}
                   value={form[f.key as keyof typeof form]}
                   onChange={e => setForm(p => ({ ...p, [f.key]: e.target.value }))}
@@ -97,6 +100,7 @@ export default function ContactSection() {
                   onBlur={() => setFocused(null)}
                   className={inputClass(f.key)}
                   placeholder={focused === f.key ? "" : f.label}
+                  aria-label={f.label}
                 />
               </div>
             ))}
@@ -104,6 +108,9 @@ export default function ContactSection() {
             {/* Dropdown de serviços */}
             <div className="relative">
               <select
+                id="contato-servico"
+                name="servico"
+                aria-label="Serviço de Interesse"
                 value={form.servico}
                 onChange={e => setForm(p => ({ ...p, servico: e.target.value }))}
                 onFocus={() => setFocused("servico")}
@@ -120,6 +127,9 @@ export default function ContactSection() {
 
             <div className="relative">
               <textarea
+                id="contato-mensagem"
+                name="mensagem"
+                aria-label="Mensagem"
                 rows={4}
                 value={form.mensagem}
                 onChange={e => setForm(p => ({ ...p, mensagem: e.target.value }))}

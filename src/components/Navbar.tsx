@@ -1,7 +1,7 @@
+import { segmentSlug } from "@/lib/seo";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { ChevronDown, ChevronRight, Menu, X, Factory, Droplets, Bug, MapPin, AlertTriangle } from "lucide-react";
-import { motion } from "framer-motion";
+import { ChevronDown, ChevronRight, Menu, X, Factory, Bug, MapPin, AlertTriangle } from "lucide-react";
 import { services, segments } from "@/data/services";
 import { getImageUrl } from "@/lib/utils";
 
@@ -29,18 +29,17 @@ export default function Navbar() {
   }, []);
 
   return (
-    <motion.nav
-      initial={{ y: -80, opacity: 0, filter: "blur(8px)" }}
-      animate={{ y: 0, opacity: 1, filter: "blur(0px)" }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
+    <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white border-b border-[#e0e8f0] ${scrolled ? "backdrop-blur-md shadow-sm" : ""}`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16 md:h-[72px]">
         <Link to="/">
           <img 
-            src={getImageUrl("/logo-amil-clean.png")} 
+            src={getImageUrl("/logo-amil-clean.webp")} 
             alt="AMIL Soluções Ambientais" 
-            className="h-[50px] md:h-[75px] w-auto object-contain" 
+            className="h-[50px] md:h-[75px] w-auto object-contain"
+            width={200}
+            height={75}
           />
         </Link>
 
@@ -77,7 +76,7 @@ export default function Navbar() {
                     ))}
                   </div>
                   <div className="bg-teal-50/50 py-4 text-center">
-                    <a href="#servicos" className="text-sm font-medium text-teal-700 hover:text-teal-800 transition-colors" onClick={() => setServicesOpen(false)}>
+                    <a href="/#servicos" className="text-sm font-medium text-teal-700 hover:text-teal-800 transition-colors" onClick={() => setServicesOpen(false)}>
                       Ver todos os serviços &rarr;
                     </a>
                   </div>
@@ -99,7 +98,7 @@ export default function Navbar() {
                       </p>
                       <div className="space-y-3">
                         {segments.slice(0, 5).map(seg => {
-                          const slug = seg.name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+                          const slug = segmentSlug(seg.name);
                           return (
                             <Link key={seg.name} to={`/segmentos/${slug}`} className="flex items-center text-base text-slate-600 hover:text-azul transition-colors leading-snug" onClick={() => setSegmentsOpen(false)}>
                               <ChevronRight className="w-3 h-3 text-slate-300 mr-2 flex-shrink-0" />
@@ -119,7 +118,7 @@ export default function Navbar() {
                       </p>
                       <div className="space-y-3">
                         {segments.slice(5, 10).map(seg => {
-                          const slug = seg.name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+                          const slug = segmentSlug(seg.name);
                           return (
                             <Link key={seg.name} to={`/segmentos/${slug}`} className="flex items-center text-base text-slate-600 hover:text-azul transition-colors leading-snug" onClick={() => setSegmentsOpen(false)}>
                               <ChevronRight className="w-3 h-3 text-slate-300 mr-2 flex-shrink-0" />
@@ -131,7 +130,7 @@ export default function Navbar() {
                     </div>
                   </div>
                   <div className="bg-teal-50/50 py-4 text-center border-t border-slate-100">
-                    <a href="#segmentos" className="text-sm font-medium text-teal-700 hover:text-teal-800 transition-colors" onClick={() => setSegmentsOpen(false)}>
+                    <a href="/#segmentos" className="text-sm font-medium text-teal-700 hover:text-teal-800 transition-colors" onClick={() => setSegmentsOpen(false)}>
                       Ver todos os segmentos &rarr;
                     </a>
                   </div>
@@ -141,7 +140,7 @@ export default function Navbar() {
           </div>
 
           <a href={AMIL_NEWS} target="_blank" rel="noopener noreferrer" className="hover:text-azul transition-colors">Amil News</a>
-          <a href="#contato" className="hover:text-azul transition-colors">Contato</a>
+          <a href="/#contato" className="hover:text-azul transition-colors">Contato</a>
         </div>
 
         <div className="hidden lg:block">
@@ -164,7 +163,11 @@ export default function Navbar() {
         </div>
 
         {/* Mobile toggle */}
-        <button className="lg:hidden text-petrol" onClick={() => setMobileOpen(!mobileOpen)}>
+        <button 
+          className="lg:hidden text-petrol p-1" 
+          onClick={() => setMobileOpen(!mobileOpen)}
+          aria-label={mobileOpen ? "Fechar menu de navegação" : "Abrir menu de navegação"}
+        >
           {mobileOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
@@ -207,7 +210,7 @@ export default function Navbar() {
             {mobileSegmentsOpen && (
               <div className="pl-4 space-y-2 mb-2 border-l-2 border-slate-100">
                 {segments.map(seg => {
-                  const slug = seg.name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+                  const slug = segmentSlug(seg.name);
                   return (
                     <Link key={seg.name} to={`/segmentos/${slug}`} className="block text-xs text-petrol/80 py-1.5" onClick={() => setMobileOpen(false)}>
                       {seg.name}
@@ -219,9 +222,9 @@ export default function Navbar() {
           </div>
 
           <a href={AMIL_NEWS} target="_blank" rel="noopener noreferrer" className="block text-petrol font-medium">Amil News</a>
-          <a href="#contato" className="block text-petrol font-medium" onClick={() => setMobileOpen(false)}>Contato</a>
+          <a href="/#contato" className="block text-petrol font-medium" onClick={() => setMobileOpen(false)}>Contato</a>
         </div>
       )}
-    </motion.nav>
+    </nav>
   );
 }

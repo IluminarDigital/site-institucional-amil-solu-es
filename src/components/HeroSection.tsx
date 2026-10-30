@@ -19,7 +19,7 @@ export default function HeroSection() {
       <div
         className="absolute inset-0"
         style={{
-          backgroundImage: `url('${getImageUrl("/hero-bg.jpg")}')`,
+          backgroundImage: `url('${getImageUrl("/hero-bg.webp")}')`,
           backgroundSize: "cover",
           backgroundPosition: "center right",
           animation: "kenBurns 20s ease-in-out infinite alternate",
@@ -48,16 +48,9 @@ export default function HeroSection() {
           justifyContent: "center",
         }}
       >
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-        >
+        <div>
           {/* BADGE */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
+          <div
             style={{
               display: "inline-flex",
               alignItems: "center",
@@ -74,25 +67,19 @@ export default function HeroSection() {
           >
             <Leaf style={{ width: "14px", height: "14px", flexShrink: 0 }} />
             Soluções diversas para gestão de Resíduos
-          </motion.div>
+          </div>
 
           {/* HEADLINE */}
-          <motion.h1
-            initial={{ opacity: 0, y: 28 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+          <h1
             className="mb-5 leading-[1.05] hero-h1"
             style={{ fontWeight: 800 }}
           >
             <span className="block text-white text-[38px] md:text-[68px]">Gestão Integrada de</span>
             <span className="block text-[#38BDF8] text-[38px] md:text-[68px]">Resíduos</span>
-          </motion.h1>
+          </h1>
 
           {/* SUBTITLE */}
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.35 }}
+          <p
             className="mb-10 hero-subtitle"
             style={{
               fontSize: "17px",
@@ -102,7 +89,7 @@ export default function HeroSection() {
             }}
           >
             Especialistas em gestão e Destinação Ambientalmente Correta de Resíduos
-          </motion.p>
+          </p>
 
           {/* BUTTONS */}
           <motion.div
@@ -220,7 +207,7 @@ export default function HeroSection() {
               </span>
             </div>
           </motion.div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
